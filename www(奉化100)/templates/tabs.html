@@ -1,0 +1,23 @@
+<ion-tabs class="tabs-icon-top tabs-light main-navbar" delegate-handle="main-tabs">
+    <ion-tab title="主页" icon="icon ion-ios7-home" ng-click="goToState('tab.home')">
+        <ion-nav-view name="tab-home"></ion-nav-view>
+    </ion-tab>
+    <ion-tab hidden="true" title="超市" icon="icon">
+        <ion-nav-view name="tab-market"></ion-nav-view>
+    </ion-tab>
+    <ion-tab hidden="true" title="外卖" icon="icon">
+        <ion-nav-view name="tab-carryout"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="公告" icon="icon ion-ios7-paper" ng-click="goToState('tab.notice')">
+        <ion-nav-view name="tab-notice"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="积分系统" icon="icon ion-cube" ng-click="goToState('tab.integral')">
+        <ion-nav-view name="tab-app"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="购物车" icon="ion-ios7-cart" ng-click="goToState('tab.cart')">
+        <ion-nav-view name="tab-cart"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="我" icon="icon ion-person" ng-click="goToState('tab.account')">
+        <ion-nav-view name="tab-account"></ion-nav-view>
+    </ion-tab>
+</ion-tabs>

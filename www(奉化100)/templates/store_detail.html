@@ -1,0 +1,77 @@
+<ion-view hide-nav-bar="true">
+    <div class="bar bar-header bar-light">
+        <a ng-href="#/tab/{{ (storeData.storeId &amp;&amp; !storeData.isHot)?'carryout' + (storeData.category?'?category=' + storeData.category: ''): 'home' }}">
+            <button class="button-icon icon ion-ios7-arrow-back button back-button">
+            返回
+            </button>
+        </a>
+        <h1 class="title" ng-bind="storeData.data.name || '加载中...'"></h1>
+        <a href="javascript:;" class="button button-icon icon favorite-btn" ng-class="{'ion-ios7-star': storeData.data.favorited, 'energized': storeData.data.favorited, 'ion-ios7-star-outline': !storeData.data.favorited}" ng-click="likeStore()">
+        </a>
+    </div>
+    <!--outside group-->
+    <div class="store-group outside-group">
+        <ul>
+            <li ng-repeat="category in storeData.data.groups track by $index" ng-class="{'active': storeData.currentGroup == category.id}"><a href="javascript:;" ng-bind="category.name" ng-click="changeGroup(category.id)"></a></li>
+        </ul>
+    </div>
+    <!--total information-->
+    <div class="store-total-container">
+        <a href="#/tab/cart" class="button button-energized button-cart">去购物车</a>
+        <div class="store-total-info">
+            <p>您在本店一共选择了<span ng-bind="calcTotal().count"></span>件商品</p>
+            共计<span ng-bind="calcTotal().totalPrice | currency: ''"></span>元
+        </div>
+    </div>
+    <!--goods detail backdrop-->
+    <div class="store-detail-backdrop" ng-show="storeData.modalToggle" ng-click="storeData.modalToggle = false;"></div>
+    <!--goods detail-->
+    <div class="store-detail-modal" ng-show="storeData.modalToggle">
+        <div class="store-detail-banner" ng-style="storeData.modalBanner">
+            <h5 class="text-center" ng-bind="storeData.modalItem.name"></h5>
+            <button class="button button-clear icon ion-ios7-close" ng-click="storeData.modalToggle = false;"></button>
+        </div>
+        <span class="store-detail-attr-title">单价: </span>
+        <p class="store-detail-attr energized" ng-bind="'￥' + storeData.modalItem.price"></p>
+        <span class="store-detail-attr-title">介绍: </span>
+        <p class="store-detail-attr" ng-bind="storeData.modalItem.description || '暂无简介'"></p>
+    </div>
+    <ion-content class="store-container has-header" has-bouncing="true">
+        <div class="store-banner">
+            <img cache-src="{{storeData.banner}}" class="store-banner" />
+        </div>
+        <div class="store-basic-info">
+            <i class="icon ion-cash"></i> <em ng-bind="storeData.data.short_desc"></em><br/>
+            <i class="icon ion-clock"></i> <em ng-bind="'营业时间: ' +  storeData.data.start_at + '~' + storeData.data.end_at"></em>
+            <em ng-bind="storeData.data.extra_start_at + '~' + storeData.data.extra_end_at" ng-if="storeData.data.extra_start_at"></em>
+        </div>
+        <div class="store-content">
+            <div class="store-group">
+                <ul scroll-toggle="0" toggle-elm=".outside-group">
+                    <li ng-repeat="category in storeData.data.groups track by $index" ng-class="{'active': storeData.currentGroup == category.id}"><a href="javascript:;" ng-bind="category.name" ng-click="changeGroup(category.id)"></a></li>
+                </ul>
+            </div>
+            <ul class="list store-items">
+                <li class="item" ng-repeat="item in storeData.items track by $index">
+                    <div class="store-item-pic" saled="{{ '售 ' + item.item_sales + ' 份' }}">
+                        <img cache-src="{{ item.image }}" alt="" ng-click="openDetail(item)"/>
+                    </div>
+                    <span class="store-item-info">
+                        <h5 ng-bind="item.name"></h5>
+                        <em>价格:</em><br/>
+                        <strong ng-bind="'￥' + item.price"></strong>
+                    </span>
+                    <span class="store-item-stepper">
+                        <span class="stepper-container">
+                            <button class="icon ion-minus-round" ng-click="subQuantity(item);$event.stopPropagation();"></button>
+                            <em ng-bind="item.quantity || '0'"></em>
+                            <button class="icon ion-plus-round" ng-click="addQuantity(item);$event.stopPropagation();"></button>
+                        </span>
+                    </span>
+                </li>
+                <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="storeData.hasMore" ng-class="{'active': !storeData.currentPage}" icon="ion-loading-a">
+                </ion-infinite-scroll>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

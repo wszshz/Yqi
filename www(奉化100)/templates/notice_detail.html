@@ -1,0 +1,7 @@
+<ion-view title="公告详情">
+    <ion-content class="notice-container" has-header="true" has-bouncing="true">
+        <h4 class="notice-title" ng-bind="noticeData.data.title"></h4>
+        <p class="notice-basic-info">发布时间: {{ noticeData.data.added_at }}</p>
+        <div class="notice-content" ng-bind-html="noticeData.data.content"></div>
+    </ion-content>
+</ion-view>

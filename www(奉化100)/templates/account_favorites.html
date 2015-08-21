@@ -1,0 +1,22 @@
+<ion-view title="我的收藏">
+    <ion-content has-header="true" has-bouncing="true">
+        <ul class="list store-items">
+            <li ng-repeat="favorite in favoritesData.stores">
+                <a class="item item-icon-right" ng-click="goToStore(favorite.store.id, $index)" ng-class="{'not-business': !favorite.store.is_business}" ng-click="favorite.store.is_business || $event.preventDefault()">
+                    <img cache-src="{{ favorite.store.logo }}" alt="" class="store-item-pic" />
+                    <span class="store-item-info">
+                        <h5 ng-bind="favorite.store.name"></h5>
+                        <em>{{ favorite.store.start_at + '~' + favorite.store.end_at }} {{ favorite.store.extra_start_at?favorite.store.extra_start_at + '~' + favorite.store.extra_end_at:'' }}</em><br/>
+                        <strong>{{ favorite.store.send_price }} 元起免配送费</strong>
+                    </span>
+                    <button class="icon ion-ios7-trash-outline remove-button" ng-click="removeFavorite(favorite.id, $index);$event.stopPropagation();"></button>
+                </a>
+            </li>
+            <li class="item" ng-if="!favoritesData.stores.length && !favoritesData.hasMore">
+                您暂时没有收藏任何店铺哦。
+            </li>
+        </ul>
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="favoritesData.hasMore" icon="ion-loading-a">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

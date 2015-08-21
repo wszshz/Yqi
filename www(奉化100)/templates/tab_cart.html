@@ -1,0 +1,51 @@
+<ion-view title="购物车">
+    <!--total information-->
+    <div class="store-total-container cart-total-container opacity-hide" ng-show="calcCartTotal().count" ng-class="{'opacity-show': cartData.address}">
+        <div class="list order-note-container">
+            <label class="item item-input">
+                <input type="text" placeholder="订单备注(可选)" ng-model="cartData.note">
+            </label>
+        </div>
+        <a href="javascript:;" class="button button-energized button-cart" ng-click="openModal()">结算</a>
+        <div class="payment-container">
+            <a href="javascript:;" class="icon" ng-class="{'ion-ios7-checkmark-outline': cartData.paymentMethod != 2,'ion-ios7-checkmark': cartData.paymentMethod == 2}" ng-click="cartData.paymentMethod = 2">货到付款</a>
+            <br/>
+            <a href="javascript:;" class="icon" ng-class="{'ion-ios7-checkmark-outline': cartData.paymentMethod != 1,'ion-ios7-checkmark': cartData.paymentMethod == 1}" ng-click="cartData.paymentMethod = 1">支付宝付款</a>
+        </div>
+        <div class="store-total-info">
+            <p>您一共选择了<span ng-bind="calcCartTotal().count"></span>件商品</p>
+            共计<span ng-bind="calcCartTotal().totalPrice | currency: ''"></span>元
+        </div>
+    </div>
+    <ion-content class="cart-content opacity-hide" has-header="true" has-bouncing="true" ng-class="{'cart-empty': !calcCartTotal().count, 'opacity-show': cartData.address}">
+        <div class="cart-group" ng-repeat="shop in cartData.shops">
+            <h5 class="cart-group-title">
+                <a href="javascript:;" class="cart-group-remove" ng-click="removeItem(null, shop.id)">全部移除</a>
+                <a ng-href="{{ shop.id==1?'#/tab/market': '#/tab/carryout/' + shop.id }}" ng-bind="shop.name"></a>
+            </h5>
+            <ul class="list store-items">
+                <li class="item" ng-repeat="item in shop.items">
+                    <img cache-src="{{ item.image }}" alt="" class="store-item-pic" />
+                    <span class="store-item-info">
+                        <h5 ng-bind="item.name"></h5>
+                        <em>价格:</em><br/>
+                        <strong ng-bind="'￥' + item.price"></strong>
+                    </span>
+                    <span class="store-item-stepper">
+                        <span class="stepper-container">
+                            <button class="icon ion-minus-round" ng-click="subQuantity(item, shop)"></button>
+                            <em ng-bind="item.quantity || '0'"></em>
+                            <button class="icon ion-plus-round" ng-click="addQuantity(item, shop)"></button>
+                        </span>
+                    </span>
+                    <span class="store-item-remove">
+                        <button class="icon ion-ios7-close-outline" ng-click="removeItem(item.id, shop.id)"></button>
+                    </span>
+                </li>
+            </ul>
+            <p class="cart-group-total">
+                共计<span ng-bind="calcGroupTotal(shop.items).count">1</span>件商品，合计<span ng-bind="calcGroupTotal(shop.items).totalPrice | currency: ''"></span>元
+            </p>
+        </div>
+    </ion-content>
+</ion-view>

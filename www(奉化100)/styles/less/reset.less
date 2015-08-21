@@ -1,0 +1,74 @@
+// reset the styles of browser
+.item-stacked-label, .item-floating-label{
+    background-color: #fff;
+}
+.energized, a.energized {
+    color: @orange;
+}
+.bar-light{
+    background-image: none!important;
+    background-color: #fff!important;
+    border-bottom: 1px solid #eee!important;
+}
+
+// reset the styles of ionic
+body{
+    display: none;
+}
+.pane{
+    background-color: #f2f6f7;
+}
+input[disabled], select[disabled], textarea[disabled]
+, input[readonly]:not(.cloned-text-input)
+, textarea[readonly]:not(.cloned-text-input), select[readonly]{
+    background-color: #fff;
+    opacity: 0.6;
+}
+a{ 
+
+    -webkit-tap-highlight-color: rgba(0,0,0,0); 
+
+}
+img{
+    background-image: url(../images/default_img.jpg);
+    background-position: center center;
+    background-size: 100%;
+}
+
+.list > *.ng-move,
+.list > *.ng-enter,
+.list > *.ng-leave {
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+}
+ 
+.list > *.ng-leave.ng-leave-active,
+.list > *.ng-move,
+.list > *.ng-enter {
+  opacity: 0;
+}
+ 
+.list > *.ng-leave,
+.list > *.ng-move.ng-move-active,
+.list > *.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.app-container > a.ng-move,
+.app-container > a.ng-enter,
+.app-container > a.ng-leave {
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+}
+ 
+.app-container > a.ng-leave.ng-leave-active,
+.app-container > a.ng-move,
+.app-container > a.ng-enter {
+  opacity: 0;
+}
+ 
+.app-container > a.ng-leave,
+.app-container > a.ng-move.ng-move-active,
+.app-container > a.ng-enter.ng-enter-active {
+  opacity: 1;
+}

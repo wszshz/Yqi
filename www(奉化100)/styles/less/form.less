@@ -1,0 +1,129 @@
+//account buttons
+.button.button-logout{
+    .pos-center();
+    width: 86%;
+    background-color: @main-color;
+    border-color: @main-deep-color;
+}
+
+//login form
+.login-content{
+    .list{
+        .icon{
+            font-size: 20pt;
+        }
+    }
+    .list-inset{
+        margin: 20px 24px;
+        background-color: transparent;
+        .icon{
+            margin-left: -8px;
+            min-width: 24px;
+            text-align: center;
+            font-size: 20pt;
+        }
+        .button-login{
+            margin-top: 20px;
+            font-size: 13pt;
+            background-color: @login-btn-color;
+            border-color: @login-border-color;
+            &.activated{
+                background-color: @login-border-color;
+            }
+        }
+        .send-phone-input{
+            -webkit-flex: 1 0 170px;
+            -moz-box-flex: 1;
+            -moz-flex: 1 0 170px;
+            -ms-flex: 1 0 170px;
+            flex: 1 0 170px;
+        }
+        .button-reg-sms{
+            display: block;
+            margin: -5px 1px -4px 0;
+            min-width: 0;
+            width: 50px;
+            border: 0;
+            text-align: center;
+            border-left: 1px solid @light-gray;
+            font-size: @xlarge-font;
+            .icon:before{
+                color: @deep-gray;
+                margin-left: 8px;
+                font-size: 26pt;
+            }
+        }
+    }
+}
+
+//complain
+.complain-textarea{
+    min-height: 120px;
+}
+
+//agreement
+.register-agreement{
+    margin-bottom: -20px;
+    .item{
+        padding-top: 2px;
+        padding-bottom: 2px;
+        padding-left: 50px;
+        background-color: transparent;
+        border: 0;
+        font-size: @base-font;
+        .checkbox{
+            position: absolute;
+            top: 62%;
+            right: 8px;
+            left: 8px;
+            z-index: -1;
+            margin-top: -21px;
+        }
+        input{
+            left: 8px;
+            width: 22px;
+            height: 22px;
+            &:after{
+                top: 33%;
+                width: 10px;
+                height: 7px;
+            }
+            &:before{
+                border-color: #edab00;
+            }
+            &:checked:before{
+                background: #edab00;
+            }
+        }
+        > a{
+            text-decoration: none;
+        }
+    }
+}
+
+//register step
+.resiter-step-container{
+    margin-top: 20px;
+}
+.reg-sms-container{
+    label{
+        margin-right: 20px;
+        input{
+            width: 120px;
+        }
+    }
+    a{
+        position: absolute;
+        top: 30%;
+        right: 10px;
+        font-size: @base-font;
+        text-decoration: none;
+        color: @deep-gray;
+        &.activated{
+            color: @blue;
+        }
+        &.disabled{
+            color: #aaa;
+        }
+    }
+}

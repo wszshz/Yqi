@@ -1,0 +1,22 @@
+<ion-view title="消息箱">
+  <ion-content padding="false" ng-class="has-header" delegate-handle="mainScroll">
+    <ion-refresher on-refresh="refresh()" pulling-text="下拉更新..." refreshing-text="加载中..." refreshing-icon="ion-load-c">
+    </ion-refresher>
+    <div class="list">
+      <div style="text-align:center;padding:20px;margin-top:50px;width:100%;font-size:17px;color:#666" ng-if="config.errormsg">
+        <i class="icon ion-android-notifications-none" style="font-size:80px;color:#cccccc"></i>
+        <br/><br/>暂无消息<br/><br/>请等待HR和猎头主动对您表达兴趣
+      </div>
+      <a class="item item-avatar" ng-click="view(box)" style="margin:0;padding:20px 10px;border-bottom:0px" ng-repeat="box in config.boxes">
+        <div style="width:45px;height:45px;line-height:45px;background:#eee;margin:auto;padding:auto;float:left;margin-right:10px;color:#666666;font-weight:bold;text-align:center;font-size:22px">{{box.participant_name.substring(0,1)}}</div>
+        <h2>
+          <span style="float:left;width:200px;overflow:hidden;text-overflow:ellipsis;color:#222222">{{box.participant_name}}</span>
+          <span style="float:right;font-weight:normal;font-size:12px;color:#666;padding-top:5px">{{box.update_time.substring(5,10)}}</span>
+        </h2>
+        <p><span class="badge badge-calm" ng-if="box.unread_number" style="float:left;margin-right:10px;">{{box.unread_number}}</span><span style="float:left;width:180px">{{box.latest_msg}}</span></p>
+      </a>
+    </div>
+    <ion-infinite-scroll on-infinite="infinite()" icon="ion-load-c" ng-if="config.infinite">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

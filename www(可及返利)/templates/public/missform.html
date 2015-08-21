@@ -1,0 +1,29 @@
+<ion-content>
+<ul class="list">
+  <li class="item" style="background-color:#fafafa">
+    <p style="white-space:normal;text-indent:15px;line-height:26px;">如果确认收货后的第二天还没看到订单，可在此申请理赔。只有通过可及下单的订单，并且帐号活跃才能申请，由用户自己操作失误造成的订单恕不赔偿。理赔需要在确认收货后的三天内申请，我们会在一个工作日内审核处理。</p>
+  </li>
+</ul>
+<form ng-submit="submitMissOrder()">
+      <div class="list padding">
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <input type="text" placeholder="商品标题" ng-model="missData.title">
+        </label>
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <input type="text" placeholder="店铺名称" ng-model="missData.shop">
+        </label>
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <input type="text" placeholder="淘宝订单号,一次只能填一个" ng-model="missData.order">
+        </label>
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <input type="text" placeholder="实际成交价" ng-model="missData.price">
+        </label>
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <input type="text" placeholder="返利比例(选填，查返利时您看到的比例,单位%)" ng-model="missData.rate">
+        </label>
+        <label class="padding">
+          <button class="button button-block button-assertive" type="submit">申请理赔</button>
+        </label>
+      </div>
+    </form>
+</ion-content>

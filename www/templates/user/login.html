@@ -1,0 +1,24 @@
+<ion-view hide-nav-bar="true" class="entrance-view">
+	<ion-content class="login-content" has-bouncing="true">
+		<div class="login-header">
+			<img src="img/bg.jpg" alt="" />
+		</div>
+		<div class="list list-inset">
+			<div class="item item-input">
+				<i class="icon ion-iphone placeholder-icon"></i>
+				<input type="text" placeholder="手机号码" ng-model="userData.phone" />
+			</div>
+			<div class="item item-input">
+				<i class="icon ion-ios-locked-outline placeholder-icon"></i>
+				<input type="password" placeholder="密码" ng-model="userData.password" />
+			</div>
+			<button class="button button-assertive button-block button-login" ng-click="login()">
+				登　录
+			</button>
+			<div class="entrance-bottom">
+				<a href="#/tab/user/forgot" class="pull-right">忘记密码?</a>
+				<a href="#/tab/user/register">快速注册</a>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,38 @@
+ <ion-header-bar class="bar-stable">
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="backGo()"></a>
+    <h1 class="title">申请提现</h1>
+ </ion-header-bar>
+ <ion-content>
+	<section id="content" class="padding">
+		<div class="balance-title padding">
+		<p>小提示:</p>
+		<p>淘宝返利收入只能以集分宝形式到账支付宝(集分宝是支付宝积分,在淘宝下单时可使用集分宝抵现金,100集分宝=1元)。</p>
+		<p>商城返利收入和奖励收入既可以提现到支付宝余额，又可以转换成集分宝后以集分宝的形式到支付宝。</p>
+		</div>
+	</section>
+	<section id="content">
+    <form ng-submit="balanceSubmit()">
+		<div class="list padding">
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <input type="text" placeholder="您有{{balanceDate.allmoney100}}元，最低提现5元" ng-model="balanceDate.jfb" ng-show="!balanceDate.allin">
+          <span class="input-label assertive" ng-show="!balanceDate.allin">={{balanceDate.jfb?(balanceDate.jfb*100).toFixed(0):0}}集分宝</span>
+          <input type="text" ng-model="balanceDate.allmoney100" ng-show="balanceDate.allin" disabled="disabled" style="background-color:transparent">
+          <span class="input-label assertive" ng-show="balanceDate.allin">={{balanceDate.allmoney}}集分宝</span>
+        </label>
+        <ion-toggle ng-model="balanceDate.allin" id="balance-toggle"><span ng-show="!balanceDate.allin">全部转出</span><span ng-show="balanceDate.allin">总共<span class="assertive">{{balanceDate.allmoney100}}</span>元</span></ion-toggle>
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <span class="input-label">支付宝</span>
+          <input type="text" placeholder="请输入支付宝账号" ng-model="balanceDate.alipay">
+        </label>
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <span class="input-label">可及密码</span>
+          <input type="password" placeholder="请输入可及登录密码" ng-model="balanceDate.password">
+        </label>
+         <label class="padding">
+          <button class="button button-block button-assertive" type="submit">立即转出</button>
+        </label>
+        <p class="text-center dark padding-left padding-right" style="padding-bottom:30px">您有<span class="assertive">{{balanceDate.money}}元</span>可不用转出为集分宝<a href="#/public/withdraw-cash" class="padding-left" style="color:#000;text-decoration: none">>>去申请现金提现</a></p>
+        </div>
+      </form>
+	</section>
+</ion-content>

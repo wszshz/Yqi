@@ -1,0 +1,11 @@
+<ion-tabs class="tabs-icon-top tabs-light main-navbar" delegate-handle="main-tabs">
+    <ion-tab title="活动" icon="icon ion-home" ng-click="goToState('tab.list')">
+        <ion-nav-view name="tab-activities"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="随便聊" icon="icon ion-chatbubble-working" ng-click="goToState('tab.chat')">
+        <ion-nav-view name="tab-chat"></ion-nav-view>
+    </ion-tab>
+    <ion-tab title="我的约起" icon="icon ion-person" ng-click="goToState('tab.user')">
+        <ion-nav-view name="tab-user"></ion-nav-view>
+    </ion-tab>
+</ion-tabs>

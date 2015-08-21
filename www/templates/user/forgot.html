@@ -1,0 +1,60 @@
+<ion-view class="entrance-view">
+    <ion-nav-bar class="bar-light">
+        <div class="buttons">
+            <button class="button-icon icon ion-ios7-arrow-back button" ng-click="goStep(formControls.step - 1)">
+                返回
+            </button>
+        </div>
+        <h1 class="title" ng-bind="formControls.stepTitle[formControls.step] || '--'"></h1>
+    </ion-nav-bar>
+    <ion-content class="login-content" has-bouncing="true">
+        <div class="resiter-step-container" ng-show="formControls.step == 1">
+        <form form-produce="formControls.conf">
+            <div class="list list-inset">
+                <div class="item item-input">
+                    <input type="text" class="send-phone-input" placeholder="手机号码" phone-produce="formControls.phone" phone-send="#sendSMS" ng-model="formControls.models.phone" one-key-clear-input/>
+                    <button id="sendSMS" type="button" class="button button-reg-sms">
+                        <i class="icon ion-ios7-email-outline"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="list list-inset">
+                <div class="item item-input">
+                    <input type="text" placeholder="验证码" maxlength="6" input-produce="formControls.code" ng-model="formControls.models.code" one-key-clear-input/>
+                </div>
+            </div>
+            <div class="list list-inset">
+                <button type="button" class="button button-assertive button-block" form-only-check="goStep(2)" ng-disabled="formControls.SMSConf.timeout">
+                    下一步
+                </button>
+            </div>
+        </form>
+        </div>
+        <div class="resiter-step-container" ng-show="formControls.step == 2">
+            <div class="list">
+                <label class="item item-input">
+                    设置密码&nbsp;&nbsp;
+                    <input type="{{ formControls.password.show?'text': 'password' }}" placeholder="请输入密码" ng-model="formControls.models.password" one-key-clear-input/>
+                </label>
+            </div>
+            <div class="list register-agreement">
+                <div class="item item-checkbox">
+                    <label class="checkbox">
+                       <input type="checkbox" ng-model="formControls.password.show" />
+                    </label>
+                    显示密码
+                </div>
+            </div>
+            <div class="list list-inset">
+                <form form-produce="formControls.conf">
+                    <input type="hidden" input-produce="formControls.phone" ng-model="formControls.models.phone"/>
+                    <input type="hidden" input-produce="formControls.code" ng-model="formControls.models.code"/>
+                    <input type="hidden" input-produce="formControls.password" ng-model="formControls.models.password"/>
+                    <button class="button button-assertive button-block">
+                        完成
+                    </button>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

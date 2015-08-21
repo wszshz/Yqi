@@ -1,0 +1,81 @@
+<ion-view title="{{ybb_user.profile.first_name}}{{myConfig.gender[ybb_user.profile.gender]}}">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear icon ion-gear-a" ng-click="menu()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header">
+    <div style="text-align:center;width:100%;padding:10px;background:url('img/background/city.png');background-size:cover;height:200px;">
+      <!--<div ng-click="showActionsheet()" style="background:url({{ybb_user.profile.avatar}});background-size:contain;background-position:center;border-radius:40px;width:80px;height:80px;border:3px #ffffff solid;margin:auto;"></div><i class="icon ion-ios-camera fontGray4 iconFormInput iconEditPhotoProfile"></i>-->
+      <div id="captureBackground" ng-click="showActionsheet()">
+        <div class="editPhotoProfile" style="background-image:url({{ybb_user.profile.avatar}})"></div>
+        <i class="icon ion-ios-camera fontGray4 iconFormInput iconEditPhotoProfile"></i>
+      </div>
+    </div>
+    <div class="list usr-index">
+      <div class="item item-divider" style="font-size:18px;color:#2982a8;height:50px;line-height:40px;"><i class="ion-briefcase"></i> 职业经历</div>
+      <a class="item" href="#/menus/usr/career" ng-if="(ybb_user.profile.current_position||ybb_user.profile.company)" style="color:#333;padding:0px 18px;margin:0;">
+        <div class="row" ng-if="0<ybb_user.profile.work_year && ybb_user.profile.company" style="border-bottom:1px dotted #ccc;padding:10px 0px;">
+          <div class="col col-50"><span style="font-size:20px;"><i class="ion-social-chrome-outline"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">公　　司</span></div>
+          <div class="col col-50" style="text-align:right;font-size:18px;color:#777;overflow:hidden">{{ybb_user.profile.company}} <i class="ion-ios-arrow-right"></i></div>
+        </div>
+        <div class="row" ng-if="0<ybb_user.profile.work_year && ybb_user.profile.current_position" style="border-bottom:1px dotted #ccc;padding:10px 0px;">
+          <div class="col col-50"><span style="font-size:20px;"><i class="ion-tshirt-outline"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">当前职位</span></div>
+          <div class="col col-50" style="text-align:right;font-size:18px;color:#777;overflow:hidden">{{ybb_user.profile.current_position}} <i class="ion-ios-arrow-right"></i></div>
+        </div>
+        <div class="row" style="border-bottom:1px dotted #ccc;padding:10px 0px;">
+          <div class="col col-50"><span style="font-size:20px;"><i class="ion-android-checkbox-outline"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">工作经验</span></div>
+          <div class="col col-50" style="text-align:right;font-size:18px;color:#777;overflow:hidden">{{myConfig.work_year[ybb_user.profile.work_year]}} <i class="ion-ios-arrow-right"></i></div>
+        </div>
+        <div class="row" ng-if="ybb_user.profile.industry_1 || ybb_user.profile.industry_2" style="padding:10px 0px;">
+          <div class="col col-50"><span style="font-size:20px;"><i class="ion-ios-world-outline"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">行　　业</span></div>
+          <div class="col col-50" ng-if="ybb_user.profile.industry_1 &&  ybb_user.profile.industry_2" style="text-align:right;font-size:18px;color:#777">{{ybb_user.profile.industry_1}}-{{ybb_user.profile.industry_2}} <i class="ion-ios-arrow-right"></i></div>
+          <div class="col col-50" ng-if="ybb_user.profile.industry_1 && !ybb_user.profile.industry_2" style="text-align:right;font-size:18px;color:#777">{{ybb_user.profile.industry_1}} <i class="ion-ios-arrow-right"></i></div>
+          <div class="col col-50" ng-if="ybb_user.profile.industry_2 && !ybb_user.profile.industry_1" style="text-align:right;font-size:18px;color:#777">{{ybb_user.profile.industry_2}} <i class="ion-ios-arrow-right"></i></div>
+        </div>
+      </a>
+      <a class="item" href="#/menus/usr/career" ng-if="!(ybb_user.profile.current_position||ybb_user.profile.company)" style="color:#333;padding:0px 18px;margin:0;">
+        <div class="row" style="padding:10px 0px;">
+          <span style="font-size:20px;"><i class="ion-ios-information-outline"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">无工作经验</span>
+        </div>
+      </a>
+      <div class="item item-divider" style="font-size:18px;color:#2982a8;height:50px;line-height:40px;"><i class="ion-briefcase"></i> 教育背景</div>
+      <a class="item item-icon-right" href="#/menus/usr/education" style="color:#333;padding:0px 18px;margin:0">
+        <div class="row" ng-if="ybb_user.profile.school" style="border-bottom:1px dotted #ccc;padding:10px 0px;">
+          <div class="col col-50"><span style="font-size:20px;"><i class="ion-android-home"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">学　　校</span></div>
+          <div class="col col-50" style="text-align:right;font-size:18px;color:#777;overflow:hidden">{{ybb_user.profile.school}} <i class="ion-ios-arrow-right"></i></div>
+        </div>
+        <div class="row" ng-if="ybb_user.profile.edu_level" style="padding:10px 0px;">
+          <div class="col col-50"><span style="font-size:20px;"><i class="ion-university"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">学　　历</span></div>
+          <div class="col col-50" style="text-align:right;font-size:18px;color:#777;overflow:hidden">{{myConfig.edu_level[ybb_user.profile.edu_level]}} <i class="ion-ios-arrow-right"></i></div>
+        </div>
+      </a>
+      <div class="item item-divider"  style="font-size:18px;color:#2982a8;height:50px;line-height:40px;"><i class="ion-heart"></i> 求职意向</div>
+      <a class="item item-icon-right" href="#/menus/usr/intention" style="color:#333;padding:0px 18px;margin:0">
+        <div class="row" style="border-bottom:1px dotted #ccc;padding:10px 0px;">
+          <div class="col col-50"><span style="font-size:20px;"><i class="ion-android-globe"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">工作城市</span></div>
+          <div class="col col-50" style="text-align:right;font-size:18px;color:#777;overflow:hidden">{{ybb_user.profile.city}} <i class="ion-ios-arrow-right"></i></div>
+        </div>
+        <div class="row" style="border-bottom:1px dotted #ccc;padding:10px 0px;">
+          <div class="col col-50" ng-if="0<ybb_user.profile.work_year"><span style="font-size:20px;"><i class="ion-social-yen-outline"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">当前月薪</span></div>
+          <div class="col col-50" ng-if="1>ybb_user.profile.work_year"><span style="font-size:20px;"><i class="ion-social-yen-outline"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">期望薪资</span></div>
+          <div class="col col-50" style="text-align:right;font-size:18px;color:#777;overflow:hidden">{{ybb_user.profile.current_salary}} <i class="ion-ios-arrow-right"></i></div>
+        </div>
+        <div class="row" ng-if="0<ybb_user.profile.work_year" style="border-bottom:1px dotted #ccc;padding:10px 0px;">
+          <div class="col col-50"><span style="font-size:20px;"><i class="ion-arrow-graph-up-right"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">期望涨薪</span></div>
+          <div class="col col-50" style="text-align:right;font-size:18px;color:#777;overflow:hidden">{{myConfig.expected_salary[ybb_user.profile.expected_salary]}} <i class="ion-ios-arrow-right"></i></div>
+        </div>
+        <div class="row" style="padding:10px 0px;">
+          <div class="col col-50"><span style="font-size:20px;"><i class="ion-clipboard"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">职位要求</span></div>
+          <div class="col col-50" style="text-align:right;font-size:18px;color:#777;overflow:hidden">{{job_requirement}} <i class="ion-ios-arrow-right"></i></div>
+        </div>
+      </a>
+      <div class="item item-divider"  style="font-size:18px;color:#2982a8;height:50px;line-height:40px;"><i class="ion-ios-telephone"></i> 联系方式</div>
+      <a class="item item-icon-right" href="#/menus/usr/contact" style="color:#333;padding:0px 18px;margin:0;">
+        <div class="row" ng-repeat="item in ybb_user.contacts" ng-if="item.contact" style="border-bottom:1px dotted #ccc;padding:10px 0px;">
+          <div class="col col-50"><span style="font-size:20px;"><i class="{{myConfig.contact_icon[item.contact_type]}}"></i></span> <span style="font-size:18px;color:#666;padding:3px 8px;">{{myConfig.contact_type[item.contact_type]}}</span></div>
+          <div class="col col-50" style="text-align:right;font-size:18px;color:#777;overflow:hidden">{{item.contact}} <i class="ion-ios-arrow-right"></i></div>
+        </div>
+      </a>
+      <div class="item item-divider" style="height:50px;font-size:12px;color:red;font-weight:normal;word-wrap:break-word;word-break:break-all;white-space:normal;">注：以上微简历将根据您的隐私设置，在望才招聘中被猎头、HR检索</div>
+    </div>
+  </ion-content>
+</ion-view>

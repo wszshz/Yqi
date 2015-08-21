@@ -1,0 +1,67 @@
+<ion-view title="奉化100">
+    <ion-nav-buttons side="left">
+        <button class="button button-clear area-toggle-button ng-hide" ng-click="openAreaModal()">
+            &nbsp;{{ homeData.currentArea.name || '奉化' }}<i class="icon ion-ios7-arrow-down area-toggle-icon"></i>
+        </button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear icon ion-ios7-search" ng-click="openModal()">
+        </button>&nbsp;
+    </ion-nav-buttons>
+    <ion-content has-bouncing="true" class="opacity-hide" ng-class="{'opacity-show': homeData.hotStores}">
+        <ion-slide-box class="home-banner-container" auto-play="homeData.conf.changeTime" slide-interval="homeData.conf.speed" does-continue="true" banner-produce>
+            <ion-slide ng-repeat="banner in homeData.banners">
+                <a ng-href="{{banner.link}}">
+                    <img cache-src="{{banner.image_big}}" alt="" />
+                </a>
+            </ion-slide>
+        </ion-slide-box>
+        <div class="home-shortcut">
+            <a href="#/tab/market">
+                <img src="images/icon_market.png">
+                <p>超市</p>
+            </a>
+            <a href="#/tab/carryout">
+                <img src="images/icon_carryout.png">
+                <p>外卖</p>
+            </a>
+            <a href="#/tab/carryout?category=errands">
+                <img src="images/icon_buy.png">
+                <p>代买</p>
+            </a>
+            <a href="#/tab/carryout?category=freshs">
+                <img src="images/icon_fresh.png">
+                <p>生鲜</p>
+            </a>
+            <a href="#/tab/carryout?category=fruits">
+                <img src="images/icon_fruit.png">
+                <p>水果</p>
+            </a>
+            <a href="#/tab/carryout?category=conveniences">
+                <img src="images/icon_errands.png">
+                <p>便利店</p>
+            </a>
+        </div>
+        <div class="hot-store">
+            <h4><a href="#/tab/carryout">更多</a>热门店铺</h4>
+            <ul class="list store-items hot-store-list">
+                <li ng-repeat="shop in homeData.hotStores">
+                    <a ng-href="#/tab/carryout/{{ shop.id }}?hot=1" class="item item-icon-right" ng-class="{'not-business': !shop.is_business}" ng-click="shop.is_business || $event.preventDefault()">
+                        <div class="store-item-pic" saled="{{ '已售 ' + shop.sales + ' 份' }}">
+                            <img cache-src="{{ shop.logo }}" alt=""/>
+                        </div>
+                        <span class="store-item-info">
+                            <h5 ng-bind="shop.name"></h5>
+                            <em>{{ shop.start_at + '~' + shop.end_at }} {{ shop.extra_start_at?shop.extra_start_at + '~' + shop.extra_end_at:'' }}</em><br/>
+                            <strong ng-bind="shop.short_desc"></strong>
+                        </span>
+                        <i class="icon ion-ios7-arrow-right"></i>
+                    </a>
+                </li>
+                <li class="more">
+                    <a href="#/tab/carryout">查看更多外卖</a>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+</ion-view>

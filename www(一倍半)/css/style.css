@@ -1,0 +1,421 @@
+/* Empty. Add your own CSS if you like */
+
+@font-face {
+    font-family: 'Hiragino_Sans_GB';
+    src: url('../img/Hiragino_Sans_GB_W3.otf');
+    src: url('../img/Hiragino_Sans_GB_W3.otf') format('embedded-opentype'),
+    /*
+     url(../'mensch-regular.woff') format('woff'),
+     url(../'mensch-regular.ttf') format('truetype'),
+     url(../'mensch-regular.svg#MenschMenschRegular') format('svg');
+     */
+}
+
+
+*{
+    -webkit-font-smoothing: subpixel-antialiased !important;
+    /*font-family: "Hiragino_Sans_GB";*/
+}
+
+body{background:#eeeeee;height:auto}
+body {
+    /*cursor: url(../'http://ionicframework.com/img/finger.png'), auto;*/
+}
+.select_style {width:80%; height:30px; overflow:hidden; /*background:url(../img/arrow4.png) no-repeat 90%;*/
+    border:0px solid #ccc;
+}
+.select_style select { padding:5px; background:transparent; width:80%; font-size: 16px; border:none; height:30px;
+    -webkit-appearance: none;padding-left:0; /*for Webkit browsers*/
+}
+
+.select_style2 {width:80%; height:30px; overflow:hidden; /*background:url(../img/arrow4.png) no-repeat 90%;*/
+    border:0px solid #ccc;position: relative;
+
+}
+.select_style2 select { padding:5px; background:transparent; width:80%; font-size: 16px; border:none; height:30px;padding-left:8px;
+    -webkit-appearance: none; padding-left:0;/*for Webkit browsers*/right: auto;
+}
+
+.select_style2:after {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -3px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid;
+    border-right: 5px solid rgba(0, 0, 0, 0);
+    border-left: 5px solid rgba(0, 0, 0, 0);
+    color: #999;
+    content: "";
+    pointer-events: none;
+}
+
+.select_style3 {width:80px; height:30px; overflow:hidden; /*background:url(../img/arrow4.png) no-repeat 80%;*/
+    border:0px solid #ccc;position: relative;
+}
+.select_style3 select { padding:5px; background:transparent; font-size: 16px; border:none; height:30px;padding-left:0px;
+    -webkit-appearance: none;padding-left:0; /*for Webkit browsers*/right: auto;
+}
+
+.select_style3:after {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -3px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid;
+    border-right: 5px solid rgba(0, 0, 0, 0);
+    border-left: 5px solid rgba(0, 0, 0, 0);
+    color: #999;
+    content: "";
+    pointer-events: none;
+}
+
+.btn-33{width:28%;margin:2%;float:left;font-weight:bold;font-size:14px}
+
+.messages {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.messages li {
+  display: block;
+  clear: both;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  max-width: 81%;
+  padding-left:10px;
+  padding-right:10px;
+}
+/*
+.messages li:nth-child(even) {
+  float: right;
+}
+.messages li:nth-child(even) img {
+  float: right;
+}
+ */
+.messages p {
+  margin: 0;
+  padding: .6875rem;
+  border-radius: .75rem;
+  background: #e6e5eb;
+  color: #383641;
+  font-size: 1rem;
+  max-width: 200px;
+  display:block;
+  float:left;
+}
+
+/*
+.messages li:nth-child(even) p {
+  background: #158ffe;
+  color: #fff;
+}
+ */
+
+p.color_right{
+    background: #158ffe;
+    color: #fff;
+}
+
+.messages img {
+  width: 30px;
+  height:30px;
+  border-radius: .75rem;
+}
+
+
+p.red_salary {
+    color:#ef4e3a;text-align:right;padding:0;margin:0;font-size:18px;
+}
+
+p.grey_date {
+    color:#999999;text-align:right;padding:0;margin:0;font-size:12px;padding-top:5px;
+}
+
+/*
+.fade-in {
+    -webkit-animation: slideInFromRight 0.5s;
+    -moz-animation: slideInFromRight  0.5s;
+    animation: slideInFromRight 0.5s; }
+*/
+
+.pane, .view {
+    background-color:#fff;
+}
+
+ion-nav-view {
+    background-color: #fff; }
+
+.bar .title {
+    font-size:20px;
+    font-weight:bold;
+}
+
+.input-label2 {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 100px;
+    -moz-box-flex: 1;
+    -moz-flex: 1 0 100px;
+    -ms-flex: 1 0 100px;
+    flex: 1 0 100px;
+    display: table;
+    padding: 7px 10px 7px 0px;
+    max-width: 200px;
+    width: 35%;
+    color: #444;
+    font-size: 16px; }
+
+/* only for ios
+.bar-header {
+    border-top:#4a87ee 20px solid;
+    height:64px;
+}
+
+.has-header {
+    top:64px;
+}
+ */
+
+
+.bar.bar-positive{
+    border-color: #4a87ee;
+    
+}
+
+.tab-item-active{
+    color:#4a87ee;
+    font-weight:bold;
+}
+
+.tab-item{
+    font-weight:bold;
+}
+/*
+.tabs-stable>.tabs, .tabs.tabs-stable{
+    border-color: #b2b2b2;
+    background-color: #dddddd;
+    color:#444;
+}
+*/
+.item-input-wrapper {
+    height:35px;
+}
+
+.action-sheet-title{
+    font-size:16px;
+}
+
+.action-sheet .button{
+    font-weight:bold;
+}
+
+/* only for ios end */
+
+div.gossips h2{word-wrap:break-word;word-break:break-all;white-space:normal;margin-bottom:10px;font-size:16px;}
+div.gossips p{color:#777777;font-size:14px;}
+div.gossips .active{background:red;}
+
+.tabs-hide .tabs {
+    display: none;
+}
+
+.tabs-show .tabs {
+    display: '';
+}
+
+.bar-footer.has-tabs {
+    bottom: 0px;
+}
+
+.no-footer {
+    bottom: 0px;
+}
+
+
+input[type=text],input[type=tel],input[type=email]{
+    font-size:16px;
+    padding-top:5px;
+    line-height:18px;
+}
+
+.item .badge {
+    display: inline;
+    position: relative;
+    top: 0;
+    right: 0;
+}
+
+/*input::-webkit-input-placeholder{color:#aaa;text-indent:0;padding-top:4px}*/
+div.usr-index div.col-66{overflow:hidden;text-overflow:ellipsis;}
+
+.titleSectionEditProfile{
+    text-align: center}
+.profileUserEdit{
+    float: left;
+    width: 100%;
+    margin-top: 0px;
+    height: 216px}
+.iconEditPhoto{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #7cc623;
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center}
+
+#captureBackground{
+    background: #dddddd;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    height: 65px;
+    border-radius: 65px}
+.iconEditPhotoProfile{
+    float: right;
+    margin-top: 18px;
+    font-size: 30px}
+.editPhotoProfile{
+    float: left;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 59px 59px;
+    border-radius: 65px;
+    border: 3px solid #dddddd;
+    width: 65px;
+    height: 65px}
+.item-divider-profile{
+    background: #7cc623;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    font-weight: normal !important;
+    border: none !important}
+.buttonSave, .buttonSave button, .buttonSave:hover, .buttonSave button:hover{
+    background: #252525;
+    color: #fff !important;
+    border-radius: 0px !important;
+    border: 0px !important}
+
+.fontGray4{
+    color: #888}
+
+.iconFormInput{
+    min-width: 25px !important;
+    text-align: center;
+    width: 25px !important;
+    text-align: center;
+    font-size: 25px;
+    line-height: 20px;
+    margin-right:10px}
+
+.item-select select
+{
+    right: auto;
+    padding: 13px 45px 15px 0px;
+    direction: ltr;
+    font-size:17px;
+}
+
+div.div-say{font-size:12px;color:#999;}
+
+/* android */
+.bar .title {font-size: 20px;font-weight:normal;}
+.action-sheet .button{font-weight:normal;}
+
+.titleSectionEditProfile{
+    text-align: center}
+.profileUserEdit{
+    float: left;
+    width: 100%;
+    margin-top: 0px;
+    height: 216px}
+.iconEditPhoto{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #7cc623;
+    font-size: 15px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center}
+
+#captureBackground{
+    background: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    width: 120px;
+    height: 80px;
+    border-radius: 80px;
+    margin-top:40px;
+}
+.iconEditPhotoProfile{
+    float: right;
+    margin-top: 25px;
+    font-size: 30px}
+.editPhotoProfile{
+    float: left;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 74px 74px;
+    border-radius: 80px;
+    border: 3px solid #fff;
+    width: 80px;
+    height: 80px}
+.item-divider-profile{
+    background: #7cc623;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    font-weight: normal !important;
+    border: none !important}
+.buttonSave, .buttonSave button, .buttonSave:hover, .buttonSave button:hover{
+    background: #252525;
+    color: #fff !important;
+    border-radius: 0px !important;
+    border: 0px !important}
+
+.fontGray4{
+    color: #888}
+
+.iconFormInput{
+    min-width: 25px !important;
+    text-align: center;
+    width: 25px !important;
+    text-align: center;
+    font-size: 25px;
+    line-height: 20px;
+    margin-right:10px}
+
+a, a:active, a:hover, a:visited {text-decoration:none;}
+
+.has-footer.has-tabs {
+    bottom: 0px;
+}
+
+p.color_right .link{
+    color: #fff;
+    text-decoration:underline;
+}
+
+p.color_left .link{
+    color: #00f;
+    text-decoration:underline;
+}
+
+.messages li {
+  display: block;
+  clear: both;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  max-width: 100%;
+  padding-left:10px;
+  padding-right:10px;
+}

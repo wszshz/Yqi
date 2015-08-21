@@ -1,0 +1,14 @@
+<ion-tabs class="tabs-icon-top tabs-stable" ng-class="$root.tabsHidden">
+  <ion-tab ng-click="job()" title="职位" icon="ion-grid">
+    <ion-nav-view name="tab-job"></ion-nav-view>
+  </ion-tab>
+  <ion-tab ng-click="say()" title="八卦" icon="ion-radio-waves">
+    <ion-nav-view name="tab-say"></ion-nav-view>
+  </ion-tab>
+  <ion-tab ng-click="msg()" title="消息" icon="ion-paper-airplane" badge="badge_number" badge_style="badge-assertive">
+    <ion-nav-view name="tab-msg"></ion-nav-view>
+  </ion-tab>
+  <ion-tab ng-click="usr()" title="我"   icon="ion-happy-outline">
+    <ion-nav-view name="tab-usr"></ion-nav-view>
+  </ion-tab>
+</ion-tabs>

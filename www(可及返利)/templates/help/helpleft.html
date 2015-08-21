@@ -1,0 +1,15 @@
+ <div class="tabs-striped tabs-top tabs-light tabs-icon-top">
+  <div class="tabs" style="height:100px;">
+   <a class="tab-item active relative" href="#/help/helpleft">
+  <i class="icon ion-new-x-help" style="height:80px;"></i><span style="color:#e34649">新手常见问题</span>
+   </a>
+  <a class="tab-item relative" href="#/help/helpright">
+ <i class="icon ion-new-z-help" style="height:80px;"></i>账户&提现问题
+   </a>
+  </div>
+ </div>
+ <ion-content style="margin-top:98px;">
+ <ul class="list padding-left padding-right">
+ 	<li class="item noborder-left noborder-right nopadding-left" ng-repeat="k in helpinfo_left" ng-click="helpDetail('{{k.title}}')">{{k.index}}.{{k.title}}</li>
+</ul>
+</ion-content>

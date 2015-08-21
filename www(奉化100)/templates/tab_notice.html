@@ -1,0 +1,13 @@
+<ion-view title="公告">
+    <ion-content has-header="true" has-bouncing="true">
+        <div class="list notice-list">
+            <a class="item item-avatar" ng-repeat="notice in notice.data" ng-href="#/tab/notice/{{notice.id}}">
+                <img cache-src="{{ notice.image }}" alt="" ng-class="{'no-image': !notice.image}"/>
+                <h2 ng-bind="notice.title"></h2>
+                <p>发布时间: <em ng-bind="notice.added_at"></em></p>
+            </a>
+        </div>
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="notice.hasMore" icon="ion-loading-a" ng-hide="!notice.currentPage&&notice.hasCache">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

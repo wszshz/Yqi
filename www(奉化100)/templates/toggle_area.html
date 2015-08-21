@@ -1,0 +1,13 @@
+<div class="modal">
+    <div class="bar bar-header bar-light">
+        <h1 class="title">切换地区</h1>
+        <button class="button button-small button-clear button-positive" ng-click="closeAreaModal()">取消</button>
+    </div>
+    <ion-content class="has-header">
+        <div class="row padding-top text-center">
+            <div class="col padding" ng-repeat="area in availableAreas">
+                <button class="button button-small button-block" ng-bind="area.name" ng-click="toggleArea(area)" ng-class="{'active': homeData.currentArea?area.id == homeData.currentArea.id: area.zip_code == '315500'}"></button>
+            </div>
+        </div>
+    </ion-content>
+</div>

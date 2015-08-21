@@ -1,0 +1,93 @@
+<ion-header-bar class="bar bar-header item-input-inset assertive-bg">
+    <img src="img/logo.png" style="height:30px;margin-right:16px">
+    <label class="item-input-wrapper" style="background-color:#e12f32;border:1px solid #fff;position:relative;">
+    <form ng-submit="search()" style="position:relative;width:100%">
+    <input type="search" placeholder="粘贴宝贝标题，搜索拿返利" ng-model="searchData.keyword" style="color:#fff;font-size:14px;padding-left:0;text-indent:8px" id="input-placeholder">
+    <button type="submit" class="button button-clear" style="position:absolute;right:0;top:0;">
+      <img src="img/search.png" style="height:16px;position:relative;top:1px;" alt="">
+    </button>
+  </form>
+  </label>
+  <a class="button button-clear" ng-if="iswebchat == '0'" style="background:url(img/kf.png) center center no-repeat;background-size:25px 30px;width:28px" href="http://m2.cosjii.com/Index/WebChat" target="_blank">
+  </a>
+  <a class="button button-clear" ng-if="iswebchat == '1'" style="background:url(img/kf.png) center center no-repeat;background-size:25px 30px;width:28px" ng-click="bannerClick('http://m2.cosjii.com/Index/WebChat','客服聊天')" target="_blank">
+  </a>
+</ion-header-bar>
+  <ion-content>
+  <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+<div id="content">
+  <section>
+      <ion-slide-box on-slide-changed="slideHasChanged($index)" does-continue="true" auto-play="true" slide-interval="6000">
+  <ion-slide ng-repeat="b in banner">
+    <div class="box" ng-click="bannerClick('{{b.url}}','{{b.title}}')" style="width:16rem;height:6rem;background:url({{b.img}}) center 0 no-repeat;text-align:center;background-size:16rem 6rem">
+    </div>
+  </ion-slide>
+</ion-slide-box>
+  </section>
+  <section id="btn-group">
+    <a href="#/public/tutorial">
+      <img src="img/f.png" alt="">
+    </a>
+    <a href="#/help/helpleft">
+      <img src="img/c.png" alt="">
+    </a>
+    <a href="#/tab/taobao">
+      <img src="img/t.png" alt="">
+    </a>
+    <a ng-click="goTo(13)">
+      <img src="img/s.png" alt="">
+    </a>
+    <a ng-click="goTo(11)">
+      <img src="img/q.png" alt="">
+    </a>
+    <a href="#/public/active-back">
+      <img src="img/new.png" id="ion-new-new" alt="">
+      <img src="img/share.png" alt="">
+    </a>
+    <a href="" ng-click="goTo(1)">
+      <img src="img/w.png" alt="">
+    </a>
+    <a href="" ng-click="balance()">
+      <img src="img/sq.png" alt="">
+    </a>
+  </section>
+  <section id="b-i-g">
+    <a href="#/tab/taobao" class="fanli fl"></a>
+    <div class="fl" style="width:9rem">
+      <a ng-click="bannerClick('{{tenUrl}}','10元包邮')" style="border-bottom:1px solid #ccc;display:block;width:100%;text-align:center;margin-left:0.4rem;padding:0.3rem 0"><img src="img/10yuan.png" style="width:7.4rem"></a>
+      <div>
+        <a ng-click="goTo(12)" class="fl" style="border-right:1px solid #ccc;margin:0.5rem 0 0.5rem 1rem;padding-right:0.5rem">
+        <img src="img/jfxj.jpg" alt="" style="width:3.2rem">
+        </a>
+        <a ng-click="goTo(14)" class="fl" style="margin:0.5rem 0 0.5rem 0.5rem">
+          <img src="img/pc.jpg" alt="" style="width:3.6rem">
+        </a>
+      </div>
+    </div>
+  </section>
+  <section id="g-add">
+      <span>今日上新<em>{{count}}</em>款促销</span>
+    <div class="hr"></div>
+  </section>
+  <section id="g-dealbox">
+    <div class="row">
+      <div class="col col-50">
+        <div class="deal-box" ng-repeat="l in goodsItemsL" ng-click="clickDetail('{{l.id}}','{{l.title}}')">
+          <img ng-src="http://m.zhemai.com/{{l.pic_url}}" alt="">
+          <p style="border-bottom: 1px dashed #cecece;padding-bottom:5px">{{l.title}}</p>
+          <p style="margin-bottom:0;"><span class="assertive">￥{{l.coupon_price}}</span><s>￥{{l.price}}</s></p>
+        </div>
+      </div>
+      <div class="col col-50">
+        <div class="deal-box" ng-repeat="r in goodsItemsR" ng-click="clickDetail('{{r.id}}','{{r.title}}')">
+          <img ng-src="http://m.zhemai.com/{{r.pic_url}}" alt="">
+          <p style="border-bottom: 1px dashed #cecece;padding-bottom:5px">{{r.title}}</p>
+          <p style="margin-bottom:0;"><span class="assertive">￥{{r.coupon_price}}</span><s>￥{{r.price}}</s></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<ion-infinite-scroll on-infinite="loadGoods()" ng-if="goods_load_over"></ion-infinite-scroll>
+  </ion-content>
+ 

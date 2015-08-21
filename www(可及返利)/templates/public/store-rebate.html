@@ -1,0 +1,21 @@
+<ion-header-bar class="bar-stable" style="border-bottom:1px solid #b2b2b2 !important">
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="backGo()"></a>
+    <h1 class="title">商城返利</h1>
+</ion-header-bar>
+<ion-content>
+	<div class="row">
+		<div class="col padding col-50">
+			<div class="padding" style="text-align:center;width:100%;height:100%;border:1px solid #cecece;margin-bottom:20px" ng-repeat="l in items_l" ng-click="goWin('{{l.yiqifaurl}}','{{l.title}}')">
+			<img src="{{l.img}}" alt="" style="width:100%">
+			<p>最高返利{{l.fan}}</p>
+			</div>
+		</div>
+		<div class="col padding col-50">
+			<div class="padding" style="text-align:center;width:100%;height:100%;border:1px solid #cecece;margin-bottom:20px" ng-repeat="c in items_c"  ng-click="goWin('{{c.yiqifaurl}}','{{c.title}}')">
+			<img src="{{c.img}}" alt="" style="width:100%">
+			<p>最高返利{{c.fan}}</p>
+			</div>
+		</div>
+	</div>
+  <ion-infinite-scroll on-infinite="loadMore()" ng-if="load_over"></ion-infinite-scroll>
+</ion-content>

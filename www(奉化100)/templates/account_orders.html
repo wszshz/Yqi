@@ -1,0 +1,21 @@
+<ion-view title="我的订单">
+    <ion-content has-header="true" has-bouncing="true">
+        <div class="address-group order-group" ng-repeat="item in ordersData.items track by $index">
+            <p class="addressee order-time">
+                <span ng-bind="'时间: ' + (item.added_at | date: 'yyyy-MM-dd HH:mm:ss')"></span>
+                <a href="javascript:;" class="icon ion-ios7-trash-outline" ng-click="removeOrder(item, $index)">删除</a>
+            </p>
+            <a ng-href="#/tab/account/orders/{{ item.id }}" ng-repeat="store in item.stores track by $index">
+                <i class="icon ion-ios7-arrow-right"></i>
+                <h5 ng-bind="store.name"></h5>
+                <span ng-bind="getGoodsList(store.items)"></span>
+            </a>
+            <p class="order-bottom">
+                <span class="order-status main-color" ng-bind="item.status_name"></span>
+                金额: <em ng-bind="item.price"></em>元
+            </p>
+        </div>
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="ordersData.hasMore" icon="ion-loading-a">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

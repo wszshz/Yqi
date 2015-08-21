@@ -1,0 +1,22 @@
+<div class="modal">
+    <div class="bar bar-header bar-light">
+        <button class="button button-small button-clear button-positive" ng-click="modal.hide()">取消</button>
+        <h1 class="title">收货地址选择</h1>
+        <button class="button button-small button-clear button-positive main-color" ng-click="closeModal()">完成</button>
+    </div>
+    <ion-content class="has-header">
+        <div class="address-group" ng-repeat="addr in cartData.address track by $index" ng-click="selectAddr(addr)">
+            <h5 class="addressee">
+                <a href="javascript:;" class="icon ion-ios7-checkmark-outline" ng-class="{'active': addr.id == cartData.currentAddr.id}" ng-bind="addr.id == cartData.currentAddr.id?'送到这里': '选择地址'"></a>
+                收件人: <span ng-bind="addr.username"></span>
+            </h5>
+            <p class="address-attr">联系电话: <span ng-bind="addr.phone"></span></p>
+            <p class="address-attr">收货地址: <span ng-bind="addr.name"></span></p>
+        </div>
+        <div class="padding">
+            <a href="#/tab/account/address/add?cart=true" class="button button-block button-balanced">
+                添加新的收货地址
+            </a>
+        </div>
+    </ion-content>
+</div>

@@ -1,0 +1,24 @@
+ <ion-header-bar class="bar-subheader">
+    <ul class="tabs tabs-light">
+		<li class="tab-item text-fr padding-right">1.填写手机或邮箱</li>
+		<li><a class="icon-left ion-ios-arrow-right button-clear button-dark"></a></li>
+		<li class="tab-item">2.填写验证码</li>
+		<li><a class="icon-left ion-ios-arrow-right button-clear button-dark"></a></li>
+		<li class="tab-item text-fl padding-left assertive">3.重置密码</li>
+	</ul>
+</ion-header-bar>
+ <ion-content>
+	<form>
+      <div class="list padding" style="margin-top:20px">
+        <label class="item item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <input type="password" ng-model="backpwdData.pwd" placeholder="请输入新密码">
+        </label>
+        <label class="item item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <input type="password" ng-model="backpwdData.repwd" placeholder="重复输入新密码">
+        </label>
+        <label class="padding">
+          <button class="button button-block button-assertive" type="submit" ng-click="stepLast()">提交</button>
+        </label>
+      </div>
+    </form>
+ </ion-content>

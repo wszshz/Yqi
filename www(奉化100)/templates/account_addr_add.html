@@ -1,0 +1,20 @@
+<ion-view title="添加收货地址">
+    <ion-content has-header="true" has-bouncing="true">
+        <form form-produce="formControls.conf">
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" placeholder="收件人" input-produce="formControls.addressee" ng-model="formControls.model.addressee"/>
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="联系电话" input-produce="formControls.phone" ng-model="formControls.model.phone"/>
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="详细地址" input-produce="formControls.address" ng-model="formControls.model.address"/>
+                </label>
+            </div>
+            <div class="padding">
+                <button class="button button-block button-balanced">添加到我的地址薄</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

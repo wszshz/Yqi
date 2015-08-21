@@ -1,0 +1,31 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-stable">
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="closeLogin()"></a>
+    <h1 class="title">可及登录</h1>
+  </ion-header-bar>
+  <ion-content>
+      <div class="list padding">
+        <form name="userlogin" ng-submit="doLogin()">
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <span class="input-label">账号</span>
+          <input type="text" name="username" ng-model="loginData.username" placeholder="用户名 / 邮箱 / 手机号码">
+        </label>
+
+        <label class="item-input padding-left padding-right">
+          <span class="input-label">密码</span>
+          <input type="password" name="password" ng-model="loginData.password" placeholder="请输入密码">
+        </label>
+        <label class="padding">
+          <button class="button button-block button-assertive" type="submit">登录</button>
+        </label>
+      </form>
+      <div class="row">
+      <div class="col">
+        <a ng-click="register()" class="assertive decora-none">快速注册</a></div>
+      <div class="col text-fr bar-stable">
+        <a class="gery decora-none" href="#/step/step1" ng-click="closeLogin()">找回密码</a>
+      </div>
+    </div>
+      </div>
+  </ion-content>
+</ion-modal-view>

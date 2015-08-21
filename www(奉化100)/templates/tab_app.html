@@ -1,0 +1,11 @@
+<ion-view title="应用">
+    <ion-content has-header="true" has-bouncing="true">
+        <div class="app-container">
+            <a ng-href="#/tab/app/{{ app.key || $index }}" class="app-item {{ app.className }}" ng-repeat="app in appData.list track by $index">
+                <h4><i class="icon {{app.icon}}"></i>{{ app.name }}</h4>
+                <p ng-if="!app.see">数据由{{ app.source }}提供</p>
+                <p ng-if="app.see" ng-bind="app.see"></p>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

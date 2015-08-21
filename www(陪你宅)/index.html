@@ -1,0 +1,987 @@
+﻿<!DOCTYPE html>
+<!--HTML5 doctype-->
+<!--  
+      by:wierli
+      qq:414115496
+-->
+<html>
+
+    <head>
+
+        <script>
+
+        (function() {
+    if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+            document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+    }
+})();
+
+  
+
+</script>
+
+        <title>青年打折卡APP</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" type="text/css" href="css/icons.css" />    
+ 
+       <!--   
+     <link rel="stylesheet" type="text/css" href="css/af.ui.css" title="default" />
+  -->
+      <link rel="stylesheet" type="text/css" href="css/main.css"  />
+     
+      <link rel="stylesheet" type="text/css" href="css/lists.css"  />
+      <link rel="stylesheet" type="text/css" href="css/forms.css"  />
+      <link rel="stylesheet" type="text/css" href="css/buttons.css"  />        
+      <link rel="stylesheet" type="text/css" href="css/badges.css"  />        
+      <link rel="stylesheet" type="text/css" href="css/grid.css"  />
+      <link rel="stylesheet" type="text/css" href="css/photoswipe.css">
+      <link rel="stylesheet" type="text/css" href="css/default-skin/default-skin.css">
+      
+      
+
+
+      <link rel="stylesheet" type="text/css" href="css/qndzk.css"  />
+      <link rel="stylesheet" type="text/css" href="css/qndzk_icons.css"  />
+
+        
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.actionsheet.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.popup.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.scroller.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.selectBox.css"  /> 
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.accordion.css"  /> 
+      
+
+     
+        
+        <!-- uncomment for intel.xdk apps 
+        <script type="text/javascript" charset="utf-8" src="intelxdk.js"></script>
+        <script type="text/javascript" charset="utf-8" src="xhr.js"></script>
+        -->
+        <script src="./js/jquery2.1.js"></script>
+        
+        <script type="text/javascript" charset="utf-8" src="./js/jq.appframework.js"></script>
+        <!-- include af.desktopBrowsers.js on desktop browsers only -->
+       
+       
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>          
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.accordion.js"></script>
+        
+       
+
+        <script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
+        <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideRight.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
+        <script type="text/javascript" charset="ut-f8" src="./js/fastclick.min.js"></script>  
+        
+         <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=22f300d2690b7cecabede060cbd310f3"></script>
+         <script type="text/javascript" src="./js/photoswipe.min.js"></script>
+         <script type="text/javascript" src="./js/photoswipe-ui-default.min.js"></script> 
+        
+        
+        <script type="text/javascript" src="alipayPlugin.js"></script>
+        <script type="text/javascript" src="./js/sha1.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="./js/common.js"></script>
+        <script type="text/javascript" src="./js/basic.js"></script>
+        
+       <script type="text/javascript" src="./js/json2.js"></script>
+       
+        <script type="text/javascript">
+           
+            
+var onOpenNotification = function(event){
+   
+                try{
+                    var alertContent;
+                    if(device.platform == "Android"){
+                        alertContent=window.plugins.jPushPlugin.openNotification.alert;
+                    }else{
+                        alertContent   = event.aps.alert;
+                    }
+                    
+                    
+                }
+                catch(exception){
+                    console.log("JPushPlugin:onOpenNotification"+exception);
+                }
+                
+            }
+            var onReceiveNotification = function(event){
+               
+                    var eventContent="{";
+                    for(var key in event){
+                        if(key=="type"){
+                            break
+                        }
+                       eventContent+=key+":"+JSON.stringify(event[key])+"\n"
+                    }
+                    eventContent+="}";
+                    
+                    
+                
+            }
+            
+var onDeviceReady = function(){
+
+    setItem('main_r','1');
+    check_main();
+    initiateUI();
+    
+}
+
+
+            var onGetRegistradionID = function(data) {
+                try{
+                    console.log("JPushPlugin:registrationID is "+data)
+                   
+                }
+                catch(exception){
+                    console.log(exception);
+                }
+                
+            }
+
+            function initiateUI(){
+                window.plugins.jPushPlugin.init();
+                window.plugins.jPushPlugin.getRegistrationID(onGetRegistradionID);
+            }
+
+           
+            document.addEventListener("deviceready", onDeviceReady, false); 
+            document.addEventListener("jpush.openNotification", onOpenNotification, false);
+            document.addEventListener("jpush.receiveNotification", onReceiveNotification, false);
+            
+
+    </script>
+</head>
+    <body>
+        <div id="afui">
+            <!-- this is the splashscreen you see. -->
+            <div id="splashscreen" class='ui-loader heavy'>
+                青年打折卡APP
+                <br>
+                <br>    <span class='ui-icon ui-icon-loading spin'></span>
+                <h1>正在拼命加载中...</h1>
+            </div>
+            <header id="mainheader">
+                <!-- 菜单按钮<a id='menubadge' onclick='af.ui.toggleSideMenu()' class='menuButton'></a> -->
+                <div style="text-align:center;" ><a onclick="location_api();" id="search_buttom" style="color: rgb(255, 255, 255);font-size: 16PX;font-weight: bold;margin-left: 55px;" class="button icon icon-keyboard-arrow-down">附近折扣</a><a class="button icon icon-search3 big" onclick="javascript:$.ui.loadContent('#sspage');" style="float:right; bottom:5px;"></a> </div>
+            </header>
+            <div id="content">
+                <div title="  " data-header="mainheader" id="main" class="panel" selected="true" data-load="check_main"  data-tab="navbar_home">
+
+                    
+
+                    <style type="text/css">
+/*焦点图滚动*/
+.scroll{position:relative;overflow:hidden;}
+.mod_01{float:left; }
+.mod_01 img{display:block; }
+.dotModule_new{padding:0 5px;height:11px;line-height:6px;-webkit-border-radius:11px;position:absolute;bottom:5px;right:45%;z-index:11;}
+#slide_01_dot{text-align:center;margin:1px 0 0 0;}
+#slide_01_dot span{display:inline-block;margin:0 3px;width:5px;height:5px;vertical-align:middle;background:#f7f7f7;-webkit-border-radius:5px;}
+#slide_01_dot .selected{background:#66ff33;}
+
+                    </style>
+                    <script src="./js/scroll.js"></script>
+                    <ul class="list" id="gold_ad">
+                  
+                    </ul>
+    
+            <style type="text/css">
+            
+            table
+            {
+            border-collapse:collapse;
+            width:100%;
+            }
+            
+            table, td, th
+            {
+            border:1px solid;
+            border-color:#FFF;
+            border-style:none;
+            }
+            
+            
+            
+            
+           
+
+            </style>
+            
+            
+            <!-- 本例主要代码 End ================================ -->
+
+            
+            
+            
+            
+            <ul class="bus border-1px" id="result" style="margin-top:10px;">
+                        
+                    </ul>
+                    <div id="infinite" style="color:rgb(149,215,0);width:100%;height:20px;padding:10px 10px 10px 10px;text-align:center;">正在加载...</div>
+                    <div id="bottom_info" style="text-align:center;margin-top: 10px;color: gray;"></div>
+                    <div id="map1"></div>
+
+
+                   
+                    
+                    
+                    
+                </div>
+                <!---------------------------------------------->
+
+                <div title="AppFramework" id="af" class="panel" data-load="locat_1" data-header="nearheader">
+
+                    <!-- <header><span>This is an inline header in a panel.  Below is an inline footer</span></header>-->
+                       
+                    <a onclick="JavaScript:FL();"style="color: rgb(149,215,0);border-color: rgb(149,215,0);" class="button block">分类</a>
+                    <ul class="bus" id="business_result" style="margin-top:20px;">
+                        
+                    </ul>
+                    
+
+                    
+                    
+                    
+
+                    
+                </div>
+                
+                <!-- ------------------------------------------ -->
+                <!-- ------------------------------------------ -->
+                <!-- 阅读文章 页面 -->
+                <div title="阅读文章" id="ydpage" class="panel" data-header="ydheader" data-footer="none" style="background-color:white;">
+                    <div id="ydwz" style=" -webkit-user-select:text; -moz-user-select:-moz-text;">
+                        
+                    </div>
+                </div>
+                <!-- 申请箱子 页面 -->
+                <div title="申请箱子" id="sqxzpage" class="panel" data-header="sqxzheader" data-footer="none" data-load="load_schoollist">
+                     <div class="formGroupHead"></div>
+                    <form>
+                    <div class="input-group">
+                    
+                    <label for="school" style="text-align:left; width:25%;">选择学校</label>
+                     <select id="01_school_select" style="width:75%;">
+                           
+                     </select>
+                     <br/><br/>
+                     <label for="building1" style="text-align:left; width:25%;">几栋</label>
+                    <input type="text" id="building1" placeholder="请输入阿拉伯数字" class="block" style="width:75%;">
+                    <br/><br/>
+                    <label for="number1" style="text-align:left; width:25%;">寝室号</label>
+                    <input type="text" id="number1" placeholder="请输入阿拉伯数字" class="block" style="width:75%;">
+                    <a class="button block" onclick="sqxz();" style="border-color:rgb(255, 153, 0);color: rgb(255, 153, 0);margin-top:20px;">立即申请</a>
+                    
+                    
+
+                    </div>
+                </form>
+                    
+                </div>
+                <!-- 搜索 页面 -->
+                <div title="搜索" id="sspage" class="panel" data-header="ssheader" data-footer="none" style="background-color:white;" data-load="search_c">
+                   
+                    <div style="margin-top:20px;text-align:center;">
+                    <input style="width:80%;float:left;" type="text" id="searchField" autocomplete="on" placeholder="搜店名！">
+                    <a id="search_sj"class="button" style="margin-right:-5px;margin-top:1px;width:20%;float:right;" onclick="search_dm($('#searchField').val());">搜索</a>
+                    </div>
+                    <br/><br/><br/>
+                    <ul class="bus" id="search_dm"></ul>
+
+                </div>
+                <!-- 搜索 页面 -->
+                <div title="管理员收款" id="ht_sksspage" class="panel" style="background-color:white;" data-load="load_schoollist" data-header="ht_sksspageheader">
+                   
+                    <div style="margin-top:20px;text-align:center;">
+                       
+                        <p style="margin-bottom:20px;">使用说明:<br/>1.必须选择一个检索方式<br/>2.输入一个日期并输入时间用于检索,即检索从这个日期到现在的数据(如果选择上次补货时间则不用填写).<br/>补充: 部分安卓机型弹不出日期选择框<br/>请用输入法输入日期<br/>日期格式 2014-3-24 符号是减法符号<br/>时间格式 14:53<br/>请输入24小时制 符号是冒号<br/>3.输入几栋和寝室号(例如:8栋611) 分别填8 和 611<br/>4.选择寝室所在学校<br/>5.请确保以上全部正确填写</p>
+                        <label for="diy_time">选择检索方式</label>
+                    <input id="diy" type="radio" name="diy_time" value="1">
+                    <label for="diy" class="icon">自定义时间</label>
+                    <input id="shangci_time" type="radio" name="diy_time" value="0">
+                    <label for="shangci_time" class="icon">上次补货时间</label>
+                    <br style="clear:both"><br style="clear:both">
+                    <p>填写自定义时间:</p>
+                    <input type="date" id="sk_date" class="width:20%;float:right;">
+                    <input type="time" id="sk_time" class="width:20%;float:right;">
+                    <p>选择学校:</p>
+                    <select id="03_school_select">
+                           
+                     </select>
+                     <p>几栋:</p>
+                    <input type="text" id="search_building" placeholder="几栋(只输入数字)">
+                    <p>寝室号:</p>
+                    <input type="text" id="search_number" placeholder="寝室号(只输入数字)">
+                    <a class="button block" onclick="skqh();">搜索</a>
+                    </div>
+                    <br/><br/><br/>
+                    <ul id="search_sk"></ul>
+
+                </div>
+                <!-- 下单付款 页面 -->
+                <div title="下单付款" id="xdfkpage" class="panel" data-header="xdfkheader" data-footer="none" data-load="allpay" >
+
+                    <ul class="list inset border-1px" style="margin-top:20px;">
+                        <li style="text-align:center; font-size:20px;">
+                            购物车
+                        </li>
+                        <li id="pay_howmuch" style="text-align:center; font-size:20px;color: gray;">
+                            
+                        </li>
+                    </ul>
+                </div>
+                <!-- 吃货圈 页面 -->
+                <div title="文章列表" id="chqpage" class="panel" data-header="chqheader" data-footer="none" data-load="jryh_listfn" style="background-color:white;">
+                    <ul class="list" id="jryh_list">
+                       
+                    </ul>
+                </div>
+                <!-- 支付成功回调 页面 -->
+                <div title="支付成功" id="success_page" class="panel" data-header="success_header" style="background-color:white;">
+                    
+                    <ul id="success_list" class="list inset" style="border-radius: 20px;border: 1px solid #FFF508;margin-top: 120px;text-align: center;">
+                       <li style="color:white;font-size: 20px;background-color: #FFB71D;border-top-left-radius: 20px;border-top-right-radius: 20px;" >&gt;&gt;&gt;&gt;&gt;&gt;支付成功&lt;&lt;&lt;&lt;&lt;&lt;</li>
+                       <li style="color: rgb(150, 150, 150);font-size: 17px;/* background: #F7F7F7; */">请及时联系我们的宅急送小哥! 喵~  ≧ ▽ ≦</li>
+                       <span class="button" style="color: rgb(149,215,0);border-color: rgb(149,215,0);" onclick="JavaScript:$.ui.loadContent('#ddpage',false,false,'fade');">回到我的订单</span>
+
+                        
+                    </ul>
+                </div>
+                <!-- 陪你宅_下单 页面 -->
+                <div title="选择商品" id="xzsppage" class="panel" data-header="xzspheader" data-load="xzspload" data-footer="xzspfooter">
+                  
+                    
+                   
+                  
+                  
+                  <div id="spp">
+                    <ul id="splist_1" class="list" style="font-size:20px;padding-left: 10px;padding-right: 10px;margin-top: -5px;">
+                    
+                </ul></div>
+                
+                </div>
+                <!-- 陪你宅_补货 页面 -->
+                <div title="补货" id="bhpage" class="panel" data-load="bh_listfn" data-footer="bh_footer">
+                    <ul id="splist_bh" class="list" style="font-size:20px;">
+                    
+                </ul>
+                </div>
+                <!-- 陪你宅 页面 -->
+                <div title=" " id="pnzpage" class="panel" data-header="pnzheader" data-load="pnzpanelload">
+                    
+                      
+                      <ul class="list border-1px">
+                    <div id="pnz_div">
+                    <table id="pnz" style="background:#FFF;">
+                        <tr>
+                            
+                            <td style="color:rgb(149,215, 0); text-align:center; font-size:20px;">
+                                陪你宅<br/>简介
+                            </td>
+                        </tr>
+                    </table>
+                </div></ul>
+               
+                <ul id="splist" class="bus border-1px" style="margin-top:10px;">
+                    
+                </ul>
+                
+                </div>
+                <!-- 青年卡介绍 页面 -->
+                <div title="青年卡" id="ynkpage" class="panel" data-header="ynkheader" data-load="toggle_nav">
+
+                    <ul class="list inset border-1px" style="margin-top:20px;">
+                        <li style="text-align:center;font-size:20px;">
+                           
+                                使用说明
+                           
+                        </li>
+                        <li style="text-align:center;">
+                            <p style="color:black;">
+                                青年打折卡隶属于青年科技责任有限公司。<br/>向合作店铺展示 青年打折卡APP 个人中心页面,可享八折优惠，具体优惠以合作店门口标识为准，其合作商家包含市场上各种类型店铺，KTV、德克士、宾馆、酒店、食堂、美甲、美发、服装、眼镜、药店、琴行、酒吧、中国青年旅行社、数码等等。投诉及建议请拨打
+                            <br/><br/></p>
+                            <a href="tel:13730850181" style="font-size:17px;text-align:center;color:gray;" class="icon icon-phone-in-talk big">13730850181</a>
+                        </li>
+                      
+                        <li style="text-align:center;">
+                            <p style="color:rgb(255,153,0);font-size:20px;">
+                                永久免费
+                            </p>
+                        </li>
+                        
+                        
+                            <a onclick="javascript:$.ui.loadContent('#afuidemo');" class="button block" style="margin:15px; border-color:rgb(255, 153, 0); color:rgb(255, 153, 0);">去注册 !!</a>
+                        
+                    </ul>
+
+                </div>
+                <!-- 我的打折卡 页面 -->
+                <div title="我的打折卡" id="wode_dzkpage" class="panel" data-header="wode_dzkheader" data-footer="wode_dzk" data-tab="wode_1" data-load="user_overtime">
+                    <ul class="list inset border-1px" id="wode_list1" style="margin-top:20px;">
+                        <li style="text-align: center; color:gray;">
+                           次卡剩余次数
+                        </li>
+                        <li id="wode_cishu" style="text-align: center; ">
+                           
+                        </li>
+                        <li style="text-align: center; color:gray;">
+                           会员到期时间
+                        </li>
+                        <li id="wode_overtime" style="text-align: center; ">
+                           
+                        </li>
+                        </ul>
+                    </div>
+                <!-- 打折卡办理 页面 -->
+                <div title="打折卡办理" id="dzkblpage" class="panel" data-header="dzkblheader" data-footer="wode_dzk">
+                     <ul class="list inset border-1px" id="ckllist" style="border-radius:20px; margin-top:20px;">
+                        <li style="text-align: center; color:gray;">
+                           青年打折卡 次卡 办理
+                        </li>
+                        <li style="text-align: center; color:rgb(255, 153, 0);">
+                           1 元/次
+                        </li>
+                        <li style="text-align: center; color:gray;">
+                           支付方式: 账户余额
+                        </li>
+                        <a onclick="javascript:setItem('kind','dzk'); javascript:setItem('pay','1'); javascript:$.ui.loadContent('#paypage');" class="button block" style="margin:15px; border-color:rgb(255, 153, 0); color:rgb(255, 153, 0);">立即办理</a>
+                        </ul>
+                         <ul class="list inset border-1px" id="ykllist" style="border-radius:20px; margin-top:20px;">
+                        <li style="text-align: center;">
+                           青年打折卡 月卡 办理
+                        </li>
+                        <li style="text-align: center; color:rgb(255, 153, 0);">
+                           30 元/月
+                        </li>
+                        <li style="text-align: center; color:gray;">
+                           支付方式: 账户余额
+                        </li>
+                        <a onclick="javascript:setItem('kind','dzk'); javascript:setItem('pay','30'); javascript:$.ui.loadContent('#paypage');" class="button block" style="margin:15px; border-color:rgb(255, 153, 0); color:rgb(255, 153, 0);">立即办理</a>
+
+                        </ul>
+                        <ul class="list inset border-1px" id="ykllist" style="border-radius:20px; margin-top:20px;">
+                        <li style="text-align: center;">
+                           青年打折卡 季度卡 办理
+                        </li>
+                        <li style="text-align: center; color:rgb(255, 153, 0);">
+                           90 元/季度
+                        </li>
+                        <li style="text-align: center; color:gray;">
+                           支付方式: 账户余额
+                        </li>
+                        <a onclick="javascript:setItem('kind','dzk'); javascript:setItem('pay','90'); javascript:$.ui.loadContent('#paypage');" class="button block" style="margin:15px; border-color:rgb(255, 153, 0); color:rgb(255, 153, 0);">立即办理</a>
+
+                        </ul>
+                         <ul class="list inset border-1px" id="ykllist" style="border-radius:20px; margin-top:20px;">
+                        <li style="text-align: center;">
+                           青年打折卡 年卡 办理
+                        </li>
+                        <li style="text-align: center; color:rgb(255, 153, 0);">
+                           365 元/年
+                        </li>
+                        <li style="text-align: center; color:gray;">
+                           支付方式: 账户余额
+                        </li>
+                        <a onclick="javascript:setItem('kind','dzk'); javascript:setItem('pay','365'); javascript:$.ui.loadContent('#paypage');" class="button block" style="margin:15px; border-color:rgb(255, 153, 0); color:rgb(255, 153, 0);">立即办理</a>
+
+                        </ul>
+
+
+                    </div>
+                <!-- 注册/登录 页面 -->
+                <div title="登录" id="registerandlogin" class="panel" data-header="loginheader">
+                    <div class="formGroupHead"></div>
+                    <form class="border-1px">
+                    <div class="input-group border-1px">
+                    <label for="vip" style="text-align:left; width:15%;">手机</label>
+                    <input type="text" id="vip" placeholder="phone number" class="block" style="width:85%;">
+                    <br/><br/>
+                    <label for="password" style="text-align:left; width:15%;">密码</label>
+                    <input type="password" placeholder="password" id="password" class="block" style="width:85%; webkit-text-security:disc;">
+                    <a id="loginbutton" class="button block" onclick="userlogin($('#vip').val(),$('#password').val());">登录</a>
+                    <a id="reg_button" class="button block" onclick="$.ui.loadContent('registerpage01');">注册</a>
+
+                     <!--<input id="autologincheckbox" type="checkbox" name="auto" value="1" style="float:right;">
+                    <label for="autologincheckbox" id="autologinlabel" style="width:20%;">自动登录</label>-->
+
+                   
+                    
+
+                    </div>
+                </form>
+                </div>
+                <!-- 我的订单 打折卡 页面 -->
+                <div title="我的订单" id="ddpage" class="panel" data-header="ddheader" data-load="pnz_listfn" data-unload="pnz_listfn_1" data-footer="none"><div class="formGroupHead"></div>
+                <div id="listForumCate_2" style="margin-bottom:20px;">
+                            
+                           
+                   
+                      
+                    </div> 
+                    <div id="bottom_info1" style="text-align:center;margin-top: 10px;color: gray;"></div>
+                </div>
+                <!-- 收入/销量统计 页面 -->
+                <div title="收入/销量统计" id="srpage" class="panel"  data-load="sr_load">
+                    <ul class="list inset" id="sr_list">
+                        
+                    </ul>
+                </div>
+                <!-- 管理员后台 页面 -->
+                <div title="管理" id="admin_page" class="panel">
+                     
+                    <ul class="list">
+                        <li>
+                            <a class="icon icon-cogs big" href="#sushe_page">宿舍货存</a>
+                        </li>
+                        <li>
+                            <a class="icon icon-world big" href="#ddtj_page">补货订单</a>
+                        </li>
+                        <li>
+                            <a class="icon icon-assessment big" href="#ht_sksspage">收款清货</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </div>
+                <!-- 宿舍 页面 -->
+                <div title="宿舍" id="sushe_page" class="panel" data-load="sushe_load">
+                     
+                    <ul class="list" id="sushe_list">
+                       
+                        
+                        
+                    </ul>
+                </div>
+                 <!-- 订单 管理页面 -->
+                <div title="补货订单" id="ddtj_page" class="panel" data-load="ddtj_load">
+                     <p>说明:<br/>1.请在已经补完货的情况下 按完成补货按钮<br/>2.一旦按下此按钮这条记录将从数据库删除(谨慎操作)<br/>3.宿舍的库存=上次剩余的库存+这次补货的数量<br/>4.遇到数据对不上的情况请及时修改库存</p>
+                    <ul class="list" id="wish_list">
+                       
+                        
+                        
+                    </ul>
+                </div>
+                <!-- 查看货存 页面 -->
+                <div title="查看宿舍货存" id="sushebh_page" class="panel">
+                     <p>说明:<br/>1.点击右边的数量按钮<br/>在弹出框内输入修改后的数量<br/>2.请根据情况修改,谨慎操作<br/>3. * 重要 * 填好要修改的数量后请滚动到最下面点击【确定修改】</p>
+                    <ul class="list" id="sushebh_list">
+
+                        
+                        
+                    </ul>
+                </div>
+                 <!-- 更新 页面 -->
+                <div title="更新" id="gxpage" class="panel" data-header="gxheader" data-load="gxload">
+                     
+                    <ul class="list" id="gxlist">
+                        
+                    </ul>
+                </div>
+
+                
+
+
+                <!-- 忘记密码 页面 -->
+                <div title="忘记密码" id="forgotpage" class="panel" data-header="forgotheader" data-load="hidefooter">
+                    <div class="formGroupHead"></div>
+                    <form>
+                        <div class="input-group">
+                            <label for="forgot_phone">绑定的手机</label>
+                    <input type="text" id="forgot_phone" placeholder="phone number">
+                    <br/><br/>
+                    <label for="forgot_verify">验证码</label>
+                    <input type="text" id="forgot_verify" placeholder="verify">
+                   
+
+                   <br style="clear:both">
+                    
+                    <br style="clear:both">
+                   
+                    <a class="button" style="float:right; right:10px;" onclick="alert('ok');">获取验证码</a>
+                            </div>
+                    </form>
+                    </div>
+                    <!-- 过度用 页面 -->
+                    <div title="" id="test" class="panel" data-header="testheader">
+
+                    </div>
+                    <!-- 支付 页面 -->
+                    <div title="结账付款" id="paypage" class="panel"  data-header="payheader">
+                        
+                        
+                        
+                    </div>
+                <!-- 注册 页面 -->
+                <div title="注册" id="registerpage01" class="panel" data-header="registerheader" data-load="load_schoollist">
+                    <div class="formGroupHead"></div>
+                    
+                    <form>
+                        <div class="input-group">
+                           <label for="phone">手机</label>
+                    <input type="text"  id="01_phone" placeholder="number">
+                    <br style="clear:both"><br style="clear:both">
+                    <label for="password">密码</label>
+                    <input type="password" placeholder="password" id="01_password" style="webkit-text-security:disc">
+                    <br/><br/>
+                    <label for="password_1">确认密码</label>
+                    <input type="password" placeholder="password" id="01_password_1" style="webkit-text-security:disc">
+                    <br/><br/>
+                    <label for="name">姓名</label>
+                    <input type="text" id="01_name" placeholder="name">
+                    <br/><br/>
+                    <label for="sex">性别</label>
+                    <input id="male" type="radio" name="sex" value="1">
+                    <label for="male" class="icon">帅哥</label>
+                    <input id="female" type="radio" name="sex" value="0">
+                    <label for="female" class="icon">美女</label>
+                   <br style="clear:both">
+
+                   <br style="clear:both">
+                  
+                    
+                    <br/><br/>
+                   <label for="school">学校</label>
+                     <select id="02_school_select">
+                           
+                     </select>
+                    
+                    
+
+                   <br/><br/>
+                     <label for="building" >几栋</label>
+                    <input type="text"  id="building" placeholder="例如 8" class="block" >
+                    <br/><br/>
+                    <label for="number" >寝室号</label>
+                    <input type="text"  id="number" placeholder="例如 611" class="block" >
+                    <a class="button" style="float:right; right:10px;" onclick="newdata_register();">提交</a>
+                    
+                         </div>
+                          
+                         </form>   
+                </div>
+                <div title="注册" id="registerpage02" class="panel" data-header="registerheader" data-load="hidefooter">
+                    <div class="formGroupHead"></div>
+                    <form>
+                        <div class="input-group">
+                             <label for="phone">手机</label>
+                    <input type="text" id="02_phone" placeholder="phone number">
+                    <br/><br/>
+                    <label for="password">密码</label>
+                    <input type="password" placeholder="password" id="02_password" style="webkit-text-security:disc">
+                    <br/><br/>
+                    <label for="password_1">确认密码</label>
+                    <input type="password" placeholder="password" id="02_password_1" style="webkit-text-security:disc">
+                    
+                
+                    
+                                       <br style="clear:both">
+                                       <a class="button" style="float:right; right:10px;" onclick="checkphoneregister();">提交</a>
+                         </div>
+                         </form>   
+                </div>
+
+                <div title="注册" id="registerpage" class="panel" data-header="registerheader" data-load="hidefooter">
+                    <div class="formGroupHead"></div>
+                    <form>
+                        <div class="input-group">
+                    <label for="username">卡号</label>
+                    <input type="number" min="1" max="99999" id="firstvip" placeholder="仅支持阿拉伯数字">
+                    
+                    <a class="button" style="float:right; right:10px;" onclick="checkvip_id();">下一步</a>
+                    </div>
+                        </form>
+                </div>
+              
+                <div title="修改密码" id="c_Pwdpage" class="panel" data-header="c_Pwdheader" data-load="hidefooter">
+                    <div class="formGroupHead"></div>
+                    <form>
+                        <div class="input-group">
+                    <label for="old_password12">旧密码</label>
+                    <input type="password" id="old_password" style="webkit-text-security:disc;">
+                    <br/><br/>
+                    <label for="new_password12">新密码</label>
+                    <input type="password" id="new_password" style="webkit-text-security:disc;">
+                    <br/><br/>
+                    <label for="new_password_112">确认密码</label>
+                    <input type="password" id="new_password_1" style="webkit-text-security:disc;">
+                    
+                    <a class="button" style="float:right; right:10px;border-color:rgb(255, 153, 0); color:rgb(255, 153, 0);" onclick="c_Pwd();">确认修改</a>
+                    </div>
+                        </form>
+                </div>
+                
+                <div title="关于我们" id="about" class="panel" data-header="about_header" data-footer="none">
+                    <div id='img-holder'> 
+                      <img src="http://www.qndzk.com/app/img/pic/wx.jpg" width="200" height="200" style="margin:20px 20px 20px 20px;border-radius:10px;box-shadow: 0px 10px 25px #8B8B8B;" />
+
+                        </div>
+                        <p style="font-size:20px;text-align:center;">青年打折卡微信公众平台</p>
+                         <ul class="list border-1px" style="margin-top:10px;">
+
+                            <li>
+                                <p>为您推送青年卡店铺相关信息及卡的使用。持青年打折优惠卡到团结镇学院街川传，川师成院，川科院附近街道指定店铺内消费均可享受单品八折优惠（少数类型店铺享其他优惠的会员待遇）。 </p>
+                            </li>
+                        </ul> 
+                        
+
+                        <ul class="list border-1px" style="margin-top:10px;">
+                            <li>
+                                <a href="javascript:qupingfen();" class="icon icon-like big">去评分</a>
+                            </li>
+                            <li>
+                                <a href="#gxpage" class="icon icon-autorenew big">版本更新</a>
+                            </li>
+                            
+                        </ul> 
+                        <p style="font-size:12px;text-align:center;margin-top:100px;">成都陪你宅科技有限公司 版权所有</p>
+                        <p style="text-align:center;font-size:12px;">Copyright © 2011-2014 PNZ.ALL Rights Reserved.</p>
+                        
+                      
+                        
+                  </div>  
+               
+                <div title="意见反馈" id="yjfk" class="panel" data-header="yjfk_header" data-footer="none">
+                    <div class="formGroupHead"></div>
+                    <form>
+                        <textarea id="yj_text" rows="6" placeholder="请填写意见" class="" style="margin-top: 0px; margin-bottom: 10px; height: 126px;"></textarea>
+                        <a class="button block" style="border-color:rgb(149, 215, 0); color:rgb(149, 215, 0); background-color:#FFF; text-align:center;" onclick="yjfk_up($('#yj_text').val());">提交意见</a>
+                    </form>
+
+                     </div>
+               
+               
+                <!-- ------------------------------------------ -->
+                <!-- ------------------------------------------ -->
+                <!-- App Framework UI -->
+                <div title="我的" id="afuidemo" class="panel" data-header="none" data-load="panelload">
+                    <ul class="list border-1px">
+                        <div id="login_div">
+                      
+                        </div>
+                         </ul>
+                         
+                             
+                         
+                    <ul class="list border-1px" id="wodelist">
+                        <li id="manager">
+                            <a href="#admin_page" class="icon icon-rocket big blue">管理员后台</a>
+                        </li>
+                        <li>
+                            <a href="JavaScript:checkvip_dd();" class="icon icon icon-note big blue">我的订单</a>
+                        </li>
+                        <li>
+                            <a href="JavaScript:checkvip_dzk();" class="icon icon-credit-card2 big blue">打折卡办理</a>
+                        </li>
+                       
+                        <li>
+                            <a href="JavaScript:checkvip_cPwd();" class="icon icon-key3 big blue">修改密码</a>
+                        </li>
+                        </ul>
+                        <ul class="list border-1px" id="wodelist" style="margin-top:10px;">
+                        <li>
+                            <a href="JavaScript:checkvip_yjfk();" class="icon icon-bubble3 big green">意见反馈</a>
+                        </li>
+                       
+                        </ul>
+                        <ul class="border-1px list" id="wodelist" style="margin-top:10px;">
+                        <li>
+                            <a href="#about" class="icon icon-t-shirt big blue">关于我们</a>
+                        </li>
+                        
+                    </ul>
+                    
+                    <ul class="list border-1px">
+
+                    <div id="outlogin_button_div">
+                       <a class="button block" id="outlogin_button" style="margin-top:20px;margin-bottom:20px;" href="javascript:outlogin();">退出登录</a>
+                       
+                        </div></ul>
+                
+                </div>
+                
+                
+            </div>
+            <!-- ------------------------------------------ -->
+            <!-- navbar -->
+            
+            <div id="navbar">
+                <a href="javascript:$.ui.loadContent('#main',false,false,'none');" id='navbar_home' class='icon icon-credit-card2 big'>青年卡</a><a href="javascript:pdtz();" id='navbar_pnz' class='icon icon-github big'>陪你宅</a><a href="javascript:$.ui.loadContent('#afuidemo',false,false,'none');" id='navbar_ui' class="icon icon-user big">我的</a>
+            </div>
+              <footer id="xzspfooter">
+                  <p id="all_pay" style="margin-top:15px;font-size:30px;color:rgb(255, 153, 0);"></p> <a class="button" onclick="xdfk_jc();" style="margin-right:5px;color:#FFF;background:rgb(149,215,0);border-color:rgb(149,215,0);float:right;margin-top:-30px;">去付款</a><a class="button" onclick="sqbh();" style="margin-right:10px;color:#FFF;background:rgb(255, 153, 0);border-color:rgb(255, 153, 0);float:right;margin-top:-30px;">申请补货</a>
+              </footer>
+               <footer id="bh_footer">
+                  <p id="all_pay_bh" style="margin-top:15px;font-size:30px;color:rgb(255, 153, 0);"></p> <a class="button" onclick="fs_wish();" style="margin-right:5px;color:#FFF;background:rgb(149,215,0);border-color:rgb(149,215,0);float:right;margin-top:-30px;">确定补货</a>
+              </footer>
+
+            <footer id="ddfooter">
+                <a id='pnz_dd' href="#pnz_ddpage" class="icon icon-diamond">陪你宅订单</a>
+            </footer>
+            <footer id="wode_dzk">
+                <a id='wode_1' class='icon icon-price-tags' href="#wode_dzkpage">我的打折卡</a><a id='wode_2' href="#dzkblpage" class="icon icon-diamond">打折卡办理</a>
+            </footer>
+            <header id="loginheader">
+                
+                
+                    <h1>登录</h1>
+            </header>
+            <header id="wode_dzkheader">
+                <a id="backButton" onclick="$.ui.loadContent('afuidemo',true,true,'slide');" class='button'>返回</a>
+                    <h1>我的打折卡</h1>
+            </header>
+            <header id="xdfkheader">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>下单付款</h1>
+            </header>
+            <header id="pnzheader">
+                <div style="text-align:center;" >
+                
+                    <h1>陪你宅</h1></div>
+            </header>
+             <header id="ynkheader">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>青年卡</h1>
+            </header>
+            <header id="dzkblheader">
+                <a id="backButton" onclick="$.ui.loadContent('afuidemo',true,true,'slide');" class='button'>返回</a>
+                    <h1>打折卡办理</h1>
+            </header>
+            <header id="registerheader">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>注册</h1>
+            </header>
+            <header id="c_Pwdheader">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>修改密码</h1>
+            </header>
+            <header id="ssheader">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>搜索</h1>
+            </header>
+            <header id="payheader">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>支付</h1>
+            </header>
+            <header id="czheader">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>充值</h1>
+            </header>
+            <header id="ddheader">
+                <a id="backButton" onclick="$.ui.loadContent('afuidemo',true,true,'slide');" class='button'>返回</a>
+                    <h1>我的订单</h1>
+                     <a class='button' onclick="shuaxin_dd();" style="float:right;">刷新</a>
+            </header>
+            <header id="forgotheader">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>忘记密码</h1>
+            </header>
+             <header id="ht_sksspageheader">
+                <a id="backButton" onclick="$.ui.loadContent('admin_page',true,true,'slide');" class='button'>返回</a>
+                    <h1>管理员收款查询系统</h1>
+            </header>
+            <header id="smz_header">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>上传实名制照片</h1>
+            </header>
+            <header id="yjfk_header">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>意见反馈</h1>
+            </header>
+            <header id="about_header">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>关于我们</h1>
+            </header>
+            <header id="sqxzheader">
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>申请箱子</h1>
+            </header>
+            <header id="ydheader">
+                 <a onclick="$.ui.loadContent('#main');" class='button'>返回</a>
+                  <h1>阅读</h1>  
+            </header>
+            <header id="gxheader">
+                <a id="backButton"  class='button'>返回</a>
+                  <h1>版本更新</h1>  
+            </header>
+            <header id="xzspheader">
+                <a id="backButton" onclick="$.ui.loadContent('#main'); $.ui.clearHistory();" class='button'>返回</a>
+                  <h1>选择商品</h1>  
+                  <a  onclick="xzspload();" class='button' style="float:right;">清空</a>
+            </header>
+            <header id="chqheader">
+                <a id="backButton" onclick="af.ui.goback();" class='button'>返回</a>
+                  <h1>板块文章</h1>  
+            </header>
+            <header id="nearheader">  
+
+                <a id="backButton"  class='button'>返回</a>
+                    <h1>附近</h1>
+                    
+                <a class="button icon icon-location big" onclick="JavaScript:locat();" style="float:right; bottom:5px;"></a> 
+            </header>
+            <header id="testheader">  
+            </header>
+            <header id="wodeheader">
+                <a id="backButton" onclick="$.ui.loadContent('#main'); $.ui.clearHistory();" class='button'>返回</a>
+                    <h1>我的</h1>
+                   
+                
+            </header>
+            <!-- ------------------------------------------ -->
+            <!-- ------------------------------------------ -->
+            <!-- ------------------------------------------ -->
+            
+           
+        </div>
+ <script>
+
+
+        //注册/登录 右滑返回特效
+            $('#registerandlogin').bind("swipeRight", function() {
+                $.ui.loadContent("#afuidemo", false, true, "slideright");
+              });
+            
+            $('#pnzpage').bind("swipeRight", function() {
+                $.ui.loadContent("#main", false, true, "slideright");
+              });
+            $('#af').bind("swipeRight", function() {
+                $.ui.loadContent("#main", false, true, "slideright");
+              });
+           
+            $('#sspage').bind("swipeRight", function() {
+               $.ui.loadContent("#main", false, true, "slideright");
+              });
+            $('#afuidemo').bind("swipeRight", function() {
+               $.ui.loadContent("#main", false, true, "slideright");
+              });
+             $('#xzsppage').bind("swipeRight", function() {
+               $.ui.loadContent("#main", false, true, "slideright");
+              });
+        </script>
+    </body>
+</html>

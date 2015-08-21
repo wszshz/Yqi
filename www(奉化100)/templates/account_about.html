@@ -1,0 +1,19 @@
+<ion-view title="关于奉化100">
+    <ion-content has-header="true" has-bouncing="true">
+        <div class="about-logo"></div>
+        <p class="about-version" ng-bind="'当前版本: ' + version"></p>
+        <div class="list account-menu">
+            <a href="#/tab/account/about/agreement" class="item">用户注册协议</a>
+            <a href="#/tab/account/about/introduction" class="item">简介</a>
+            <a href="javascript:;" ng-click="clearCache()" class="item item-icon-right">
+                清空数据缓存
+                <i class="icon ion-ios7-box-outline"></i>
+            </a>
+            <a href="javascript:;" ng-click="call()" class="item item-icon-right">
+                客服电话
+                <span class="item-note">0574-88591010</span>
+                <i class="icon ion-ios7-telephone-outline"></i>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

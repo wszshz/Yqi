@@ -1,0 +1,24 @@
+<ion-view title="店铺">
+    <ul class="carryout-type-list" ng-show="!carryoutData.category">
+        <li ng-repeat="type in carryoutData.typeList track by $index" ng-class="{'active': carryoutData.type == type.id}">
+            <a href="javascript:;" ng-click="changeType(type.id)" ng-bind="type.name"></a>
+        </li>
+    </ul>
+    <ion-content has-header="true" has-bouncing="true" ng-class="{'carryout-content': !carryoutData.category}">
+        <ul class="list store-items hot-store-list">
+            <li ng-repeat="shop in carryoutData.list">
+                <a ng-href="#/tab/carryout/{{ shop.id }}{{ carryoutData.category?'?category=' + carryoutData.category: null }}" class="item item-icon-right" ng-class="{'not-business': !shop.is_business}" ng-click="shop.is_business || $event.preventDefault()">
+                    <div class="store-item-pic" saled="{{ '已售 ' + shop.sales + ' 份' }}">
+                        <img cache-src="{{ shop.logo }}" alt=""/>
+                    </div>
+                    <span class="store-item-info">
+                        <h5 ng-bind="shop.name"></h5>
+                        <em>{{ shop.start_at + '~' + shop.end_at }} {{ shop.extra_start_at?shop.extra_start_at + '~' + shop.extra_end_at:'' }}</em><br/>
+                        <strong ng-bind="shop.short_desc"></strong>
+                    </span>
+                    <i class="icon ion-ios7-arrow-right"></i>
+                </a>
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>

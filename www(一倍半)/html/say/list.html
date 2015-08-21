@@ -1,0 +1,42 @@
+<ion-view title="薪酬八卦">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear icon ion-plus-circled" ng-click="post()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header" delegate-handle="mainScroll">
+    <div class="list gossips" style="margin-top:0px;">
+      <div class="filter" style="opacity:{{opacity}};">
+        <div>
+          <div class="item-input-inset">
+            <label class="item-input-wrapper">
+              <i class="icon ion-search placeholder-icon"></i>
+              <input type="text" ng-model="config.filter.keywords" placeholder="请输入关键词...">
+            </label>
+            <button ng-click="find()" style="background:#1aacc3;font-weight:bold;font-size:16px;border-radius:5px;border:0px;color:white;float:right;margin:3px;height:30px">搜索</button>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;padding:20px;margin-top:50px;width:100%;font-size:17px;color:#666;" ng-if="config.errormsg">
+        <i class="icon ion-android-notifications-none" style="font-size:80px;color:#cccccc"></i>
+        <br/><br/>没有搜到相关八卦
+        <br/><br/>试试其他关键词吧
+      </div>
+      <div class="item" style="background:url('img/background/money.png');background-size:cover;height:200px;opacity:{{opacity}};" ng-if="!config.filter.keywords">
+        <center>
+          <span style="color:#fff;font-weight:bold;font-size:20px;text-shadow: 2px 2px 15px #f00;"><br/><br/>已经入职新公司？<br/>来分享下涨薪后的喜悦吧：）</span><br/><br/>
+          <button class="button button-light" ng-click="post();">提交匿名薪酬八卦</button>
+        </center>
+      </div>
+      <div class="item" style="padding-top:40px;padding-bottom:30px" ng-repeat="gossip in config.gossips">
+        <h2 style="font-size:17px;margin-left:5px;margin-right:5px;padding-left:0;padding-right:0;padding-bottom:15px;line-height:25px;color:#222222" ng-click="view(gossip)">{{gossip.content}}</h2>
+        <div class="div-say" style="float:left;">{{gossip.tags}}</div>
+        <div class="div-say" style="float:right;color:#888888;">
+          <a ng-click="like(gossip)" style="{{gossip.ding_status ? 'color:red;' : ''}}"><i class="icon ion-android-favorite-outline" style="font-size:16px;"></i> {{1*gossip.ding}}</a>　
+          <a ng-click="view(gossip)"><i class="icon ion-compose"  style="font-size:17px;"></i> {{1*gossip.comment}} </a>　
+          <a ng-click="send(gossip)"><i class="icon ion-share"    style="font-size:20px;"></i> {{1*gossip.share}}   </a>
+        </div>
+      </div>
+    </div>
+    <ion-infinite-scroll on-infinite="infinite()" icon="ion-load-c" ng-if="config.infinite">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

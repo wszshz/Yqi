@@ -1,0 +1,177 @@
+.pane {
+  background-color: #f2f6f7;
+}
+
+/*我的约起*/
+.opacity-hide {
+  -webkit-transform-origin: 0 0;
+  -webkit-transition: opacity 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out;
+  transition: opacity 0.2s ease-out;
+  -webkit-font-smoothing: subpixel-antialiased;
+  opacity: 0;
+}
+.opacity-show {
+  opacity: 1;
+}
+.profile-card .user-avatar,
+.item-avatar .user-avatar {
+  display: block;
+  width: 76px;
+  height: 76px;
+  text-align: center;
+  line-height: 76px;
+  font-size: 30pt;
+  color: #ccc;
+  background-color: #eeeeee;
+  overflow: hidden;
+  border: 3px solid #fff;
+  border-radius: 76px;
+  -webkit-border-radius: 76px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+/*.item-avatar {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+.item-avatar .user-avatar {
+  margin-left: 26px;
+  width: 60px;
+  height: 60px;
+  font-size: 26pt;
+  line-height: 58px;
+  border: 0;
+  box-shadow: 0 0 0 #ffffff;
+  -webkit-box-shadow: 0 0 0 #ffffff;
+}
+.item-avatar .input-label {
+  display: block;
+}*/
+.profile-card {
+  display: box;
+  display: -webkit-box;
+  box-orient: horizontal;
+  -webkit-box-orient: horizontal;
+  padding: 15px 20px;
+  background-color: #f3eede;
+  border-bottom: 1px solid #f2e5c9;
+  height: 135px;
+}
+.profile-card .avatar-container {
+  display:inline-block;
+  width: 82px;
+  height: 82px;
+  padding: 3px;
+  background-color: #fff;
+  border-radius: 76px;
+  -webkit-border-radius: 76px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+.profile-card .user-avatar {
+  border: 0;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.profile-card .profile-info {
+  max-width: 70%;
+  position: relative;
+  top:-80px;
+  left: 85px;
+}
+.gradient{
+    /*渐变*/
+    background: rgb(65,45,84); /* Old browsers */
+    background: -moz-linear-gradient(left, rgba(65,45,84,1) 0%, rgba(145,70,160,1) 15%, rgba(53,158,188,1) 42%, rgba(51,155,187,1) 78%, rgba(25,74,126,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(65,45,84,1)), color-stop(15%,rgba(145,70,160,1)), color-stop(42%,rgba(53,158,188,1)), color-stop(78%,rgba(51,155,187,1)), color-stop(100%,rgba(25,74,126,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left, rgba(65,45,84,1) 0%,rgba(145,70,160,1) 15%,rgba(53,158,188,1) 42%,rgba(51,155,187,1) 78%,rgba(25,74,126,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left, rgba(65,45,84,1) 0%,rgba(145,70,160,1) 15%,rgba(53,158,188,1) 42%,rgba(51,155,187,1) 78%,rgba(25,74,126,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left, rgba(65,45,84,1) 0%,rgba(145,70,160,1) 15%,rgba(53,158,188,1) 42%,rgba(51,155,187,1) 78%,rgba(25,74,126,1) 100%); /* IE10+ */
+    background: linear-gradient(to right, rgba(65,45,84,1) 0%,rgba(145,70,160,1) 15%,rgba(53,158,188,1) 42%,rgba(51,155,187,1) 78%,rgba(25,74,126,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#412d54', endColorstr='#194a7e',GradientType=1 ); /* IE6-9 */
+}
+.profile-card .profile-info h5 {
+  padding-left: 10px;
+  font-size: 12pt;
+  color: #fe5252;
+}
+.profile-card .profile-info p {
+  padding: 0 10px;
+  color: #fff;
+}
+.noborder{
+	border: 0 !important;
+	position:absolute;
+	right:0;
+	top:0;
+  line-height: 53px;
+  min-height: 59px;
+  min-width: 68px;
+  padding: 0 16px;
+}
+.ion-new-gear{
+	background: url(../img/gear.png) center center no-repeat;
+	background-size: 2rem;
+}
+.account-menu .item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 12pt;
+  color: #666;
+}
+.account-menu .item .icon {
+  color: #999;
+  font-size: 20pt;
+}
+.account-menu .item .ion-ios-arrow-right {
+  color: #eee;
+}
+.account-menu .item.activated {
+  color: #fe5252;
+  background-color: #f3f3f3;
+}
+.account-menu .item.activated .icon {
+  color: #fe5252;
+}
+.button.button-logout {
+  margin-left: auto;
+  margin-right: auto;
+  width: 86%;
+  background-color: #fe5252;
+  border-color: #db4545;
+}
+
+/*登陆*/
+.entrance-view {
+  background-color: #f7fafa;
+}
+.entrance-bottom {
+  width: 100%;
+}
+.entrance-bottom a {
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 13pt;
+  color: #666;
+  text-decoration: none;
+}
+.entrance-bottom a.activated {
+  color: #fe5252;
+}
+.entrance-bottom a.pull-right {
+  float: right;
+}
+.login-content {
+  bottom: 28px;
+}
+.login-content .login-header {
+  width: 100%;
+  min-height: 20px;
+  max-height: 250px;
+}
+.login-content .login-header img {
+  width: 100%;
+  max-height: 350px;
+}

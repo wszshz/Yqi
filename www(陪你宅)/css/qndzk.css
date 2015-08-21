@@ -1,0 +1,486 @@
+/** 青年打折卡 UI */
+/** 背景颜色 background-color:rgb(149,215,0); */
+
+/** Blue color color:rgba(82,155,234,255); */
+
+/* border rgba(158,158,158,255) */
+/* 半透明的遮罩层 */#afui.qndzk #overlay {    background: #000;    filter: alpha(opacity=50); /* IE的透明度 */    opacity: 0.5;  /* 透明度 */    display: none;    position: absolute;    top: 0px;    left: 0px;    width: 100%;    height: 100%;    z-index: 100; /* 此处的图层要大于页面 */    display:none;}
+#afui.qndzk #map {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    margin:0;
+}
+#afui.qndzk #user_header{
+    margin-top:20px;
+    margin-left: 20px;
+    width:100px; 
+    height:100px; 
+    border-radius:50px; 
+}
+#afui.qndzk #userloginandregister_button.button.pressed{
+    background: rgba(255, 255, 255, 0.61);
+    }
+#afui.qndzk  #loginbutton.button.pressed {
+background: -webkit-gradient(linear, left top, left bottom, from(rgb(149, 215, 0)),  to(rgb(198, 245, 91)));color: #FFF;
+border-radius:70px;
+}
+#afui.qndzk #loginbutton{
+background: -webkit-gradient(linear, left top, left bottom, from(rgb(198, 245, 91)),  to(rgb(149, 215, 0)));color: #FFF;
+border-radius:70px;
+}
+#afui.qndzk #reg_button.button.pressed{
+background: -webkit-gradient(linear, left top, left bottom, from(rgb(249, 125, 5)), to(rgb(255, 193, 97)));color: #FFF;
+border-radius:70px;
+}
+#afui.qndzk #reg_button{
+background: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 193, 97)), to(rgb(249, 125, 5)));color: #FFF;
+border-radius:70px;
+}
+#afui.qndzk #login_div{
+  background-image: url(../img/pic/background.gif);
+  width:auto;
+
+}
+#afui.qndzk #img-holder  
+{  
+    position: relative;  
+    text-align: center;  
+    display: block;
+}  
+
+#afui.qndzk #outlogin_button{
+    color: rgb(255, 153, 0);
+    background-color: #FFF;
+    border-color: rgb(255, 153, 0);
+}
+#afui.qndzk #userloginandregister_button{
+    color: #FFF
+    }
+#afui.qndzk #forgotlabel{
+    text-align:left;
+}
+
+#afui.qndzk {
+    font-family:"微软雅黑";
+    
+}
+
+#afui.qndzk .header {
+    background: rgb(168, 230, 29);
+    margin-top:20px;
+color: inherit;
+border: none;
+border-bottom: 1px solid rgb(168, 230, 29);
+}
+
+#afui.qndzk .header .button {
+    color: rgb(255, 255, 255);
+border-color: transparent;
+font-size: 14px;
+font-weight: normal;
+}
+
+#afui.qndzk .header h1 {
+    color: #FFF;
+text-shadow: none;
+}
+
+#afui.qndzk .panel, #afui.qndzk #modalContainer {
+    background: rgba(253, 253, 253, 1);  
+}
+
+#afui.qndzk .panel h2 { 
+    color:#888;
+}
+
+#afui.qndzk .footer {
+    background:rgb(249,249,249);
+    color:black;
+    border-top:1px solid rgba(230, 230, 230, 1);
+    box-shadow:none;
+}
+
+#afui.qndzk .footer>footer>a:not(.button) {
+    color:rgba(96,96,96,255);
+}
+
+#afui.qndzk .footer>footer>a.pressed:not(.button) {
+    border-radius:0;    
+    background:transparent;
+}
+
+
+
+#afui.qndzk .list {
+    font-weight:normal;
+}
+
+
+#afui.qndzk > #aside_menu,
+#afui.qndzk > #menu {
+    border-right:1px solid #bbb;
+    background-image:url(../img/background/user_info/01.jpg);
+    color:black;
+}
+
+#afui.qndzk #aside_menu .list li,#afui.qndzk #aside_menu .list .divider,#afui.qndzk #aside_menu .list li:first-child,#afui.qndzk #aside_menu .list li:last-child,
+#afui.qndzk #menu .list li,#afui.qndzk #menu .list .divider,#afui.qndzk #menu .list li:first-child,#afui.qndzk #menu .list li:last-child {
+    border-color:rgb(215,215,215);
+    font-weight:normal;
+    box-shadow:none;
+
+}
+
+#afui.qndzk #aside_menu .list .divider,
+#afui.qndzk #menu .list .divider {
+    background:rgba(238,238,238,255);
+    color:inherit;
+    font-size: 1em;
+    border-bottom:1px solid rgb(215,215,215);
+    color:black;
+}
+
+#afui.qndzk #aside_menu .list a,
+#afui.qndzk #menu .list a {
+    color:black;
+}
+
+#afui.qndzk #aside_menu .list,
+#afui.qndzk #menu .list {
+    
+    font-weight: normal;
+    color:black;
+}
+
+#afui.qndzk .list > li > a:after{
+    color:rgba(217,217,217,255);
+}
+
+#afui.qndzk .button {
+    background-color:transparent;
+}
+
+#afui.qndzk #backButton {
+    background:#FFF;
+    color: rgb(255, 255, 255);
+    display: block;
+    position: absolute;
+    line-height:44px;
+    left: 25px;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    padding: 0;
+    text-shadow: none;
+    background-color: transparent;
+    border:none;
+    border-color: transparent;
+    height: 44px;
+    top:0;
+    border-radius: 0;
+    box-shadow:none;
+    margin: 0;
+    padding-left: 0;
+    text-align: center;
+    width:50px;
+    padding:0 !important;
+    margin:0 !important;
+}
+
+#afui.qndzk #backButton::before {
+    z-index: -1;
+    font-size:22px;
+    position: absolute;
+    top: 10px;
+    left: -20px;
+    text-align: center;
+    border-radius: 0;
+    border: none;
+    border-color: transparent;
+    box-shadow: none;
+    -webkit-transform: none;
+    transform: none;
+    font-family: 'chevron';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    content: "\f054";
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+    background-color: transparent;
+}
+
+#afui.qndzk #backButton::after {
+    content: '';
+    width:0;
+    height:0;
+    border:none;
+}
+
+
+#afui.qndzk .button {
+    box-shadow:none;
+    border-radius: 6px;
+    border-color:#F0F0F0;
+    //background:rgb(149,215,0);
+    color:#797676;
+    text-shadow:none;
+}
+
+#afui.qndzk .button-grouped * ,
+#afui.qndzk .button-grouped >  .button:first-child,
+#afui.qndzk .button-grouped.vertical * ,
+#afui.qndzk .button-grouped.vertical >  .button:last-child, 
+#afui.qndzk .header .button-grouped > .button {
+    border-color:#FFF;
+}
+
+#afui.qndzk .button-grouped > .button.pressed ,
+#afui.qndzk .header .button-grouped > .button.pressed{
+    color:#000;
+    background:rgb(149,215,0);
+}
+
+#afui.qndzk .afPopup {
+    border:1px solid rgba(158,158,158,255);
+    border-radius:10px;
+    padding:0;
+    text-align: center;
+    color:inherit;
+    background:rgba(249,249,249,1);
+}
+
+#afui.qndzk .afPopup>HEADER{
+    padding:10px 0;
+}
+
+#afui.qndzk .afPopup>DIV{
+    padding-bottom:10px;
+}
+
+#afui.qndzk .afPopup>FOOTER{
+    border-top:1px solid #E4E4E4;
+}
+
+#afui.qndzk .afPopup>FOOTER>A.center{
+    width:100%!important;
+}
+
+#afui.qndzk .afPopup span {
+position: relative;
+display: inline-block;
+padding: 8px 12px;
+margin: 8px 0;
+font-weight: bold;
+color: #646464;
+text-align: center;
+vertical-align: top;
+cursor: pointer;
+background-color: #FDFDFD;
+border: 1px solid #E7E7E7;
+border-radius: 6px;
+box-shadow: 0 1px 0px #D3D3D3;
+text-decoration: none;
+z-index: 2;
+}
+#afui.qndzk .afPopup .button {
+    border: none;
+    width: 50%;
+    margin: 0;
+    background: transparent;
+    color:rgb(149,215,0);
+    padding:12px 0;
+}
+
+#afui.qndzk .afPopup .button.pressed {
+    background: transparent;
+}
+
+#afui.qndzk .button.pressed {
+    font-weight:bold;
+
+}
+#afui.qndzk #search_sj.pressed {
+        background: rgba(128, 128, 128, 0.16);
+    }
+
+#afui.qndzk .afPopup a:not(:first-of-type) {
+    border-left:1px solid rgba(158,158,158,255);
+}
+
+#afui.qndzk #af_actionsheet {
+    
+    color:black;
+    padding-left:10px;
+    padding-right:10px;
+    border-top: transparent 1px solid;
+    box-shadow: 0px -1px 2px rgba(0,0,0,0);
+}
+
+#afui.qndzk #af_actionsheet a{
+    background-image:none;
+    text-shadow:none;
+    box-shadow:none;
+    font-weight:normal;
+    border-radius: 0;
+    border:none;
+    -webkit-box-shadow:none;
+    color:rgba(82,155,234,255);
+    background-color:white;
+    cursor:pointer;
+    border-radius:0px;
+    line-height: 40px;
+    font-size: 20px;
+    margin-bottom: 1px;
+}
+
+#afui.qndzk #af_actionsheet a:first-child{
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+
+#afui.qndzk #af_actionsheet a:nth-last-child(2){
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+}
+
+#afui.qndzk #af_actionsheet a.cancel{
+    font-weight:bold;
+    margin: 9px 0;
+    border-radius:5px;
+}
+
+#afui.qndzk #af_actionsheet a.red{
+    color:#f44;
+}
+
+#afui.qndzk .footer>footer>a.pressed:not(.button),.footer>footer>a.icon.pressed:not(.button):before  {
+    color:rgb(149,215,0);
+}
+
+#afui.qndzk .button.previous {
+    border:none;
+}
+
+#afui.qndzk .button.next {
+    border:none;   
+}
+
+#afui.qndzk .button.previous::after {
+    color:rgba(82,155,234,255);
+    z-index: -1;
+    font-size:22px;
+    position: absolute;
+    top: 2px;
+    left: -25px;
+    text-align: center;
+    border-radius: 0;
+    border: none;
+    border-color: transparent;
+    box-shadow: none;
+    -webkit-transform: none;
+    transform: none;
+    font-family: 'chevron';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    content: "\f054";
+    -webkit-transform:rotate(180deg);
+    transform:rotate(180deg);
+    background-color: transparent;
+}
+
+#afui.qndzk .button.next::after {
+    color:rgba(82,155,234,255);
+    z-index: -1;
+    font-size:22px;
+    position: absolute;
+    top: 6px;
+    right: -25px;
+    text-align: center;
+    border-radius: 0;
+    border: none;
+    border-color: transparent;
+    box-shadow: none;
+    -webkit-transform: none;
+    transform: none;
+    font-family: 'chevron';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    content: "\f054";
+    background-color: transparent;
+}
+
+#afui.qndzk .button.gray {
+    color:#999;
+    background-color:transparent;
+}
+
+#afui.qndzk .button.yellow {
+    color:#F1C222;
+    background-color:transparent;
+}
+
+#afui.qndzk .button.red {
+    color:#b20000;
+    background-color:transparent;
+}
+
+#afui.qndzk .button.green {
+    color:#009C0C;
+    background-color:transparent;
+}
+
+#afui.qndzk .button.orange {
+    color:#FF8000;
+    background-color:transparent;
+}
+
+#afui.qndzk .button.black {
+    color:black;
+    background-color:transparent;
+}
+
+#afui.qndzk .button.slate {
+    color:#171F28;
+    background-color:transparent;    
+}
+
+#afui.qndzk .af-badge {
+    border:none;
+    box-shadow:none;
+    font-size:12px;
+}
+@media (-webkit-min-device-pixel-ratio:1.5), (min-device-pixel-ratio: 1.5){
+  .border-1px{
+    &::after, &::before{
+      -webkit-transform: scaleY(.7);
+      -webkit-transform-origin: 0 0;
+      transform: scaleY(.7);
+    }
+    &::after{
+      -webkit-transform-origin: left bottom;
+    }
+  }
+}
+@media (-webkit-min-device-pixel-ratio:2), (min-device-pixel-ratio: 2){
+  .border-1px{
+    &::after, &::before{
+      -webkit-transform: scaleY(.5);
+      transform: scaleY(.5);
+    }
+  }
+}

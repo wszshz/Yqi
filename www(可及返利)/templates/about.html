@@ -1,0 +1,21 @@
+<ion-modal-view>
+ <ion-header-bar class="bar-stable">
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="closeAbout()"></a>
+    <h1 class="title">关于可及</h1>
+ </ion-header-bar>
+ <ion-content>
+ <ul class="list list-li-bg">
+ 	<li class="item" ng-click="aboutGoTo(1)"><img src="img/icon-bz-c.png" alt="">常见问题</li>
+ 	<li class="item" ng-click="aboutGoTo(2)"><img src="img/icon-jc-c.png" alt="">淘宝返利教程</li>
+	</ul>
+ <ul class="list list-li-bg">
+ 	<li class="item" ng-click="aboutGoTo(4)"><img src="img/icon-gx-c.png" alt="">检查更新<i class="badge" style="font-weight:normal">v{{app_version}}</i></li>
+ 	<li class="item" ng-click="aboutGoTo(5)"><img src="img/icon-delete-c.png" alt="">清除缓存</li>
+<!--  	<li class="item"><img src="img/icon-pj-c.png" alt="">给我评价</li>
+ 	<li class="item"><img src="img/icon-sm-c.png" alt="">特别声明</li> -->
+ </ul>
+ <label class="padding" ng-if="flag == 1">
+    <button class="button button-block button-assertive" type="submit" ng-click="exit()" style="padding-left:30px;padding-right:30px">退出当前账号</button>
+ </label>
+</ion-content>
+</ion-modal-view>

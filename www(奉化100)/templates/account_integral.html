@@ -1,0 +1,23 @@
+<ion-view title="积分兑换">
+    <ion-content has-header="true" has-bouncing="true">
+        <ul class="list store-items">
+            <li ng-repeat="goods in intergralData.goods">
+                <a class="item item-icon-right">
+                    <img cache-src="{{ goods.image }}" alt="" class="store-item-pic" ng-class="{'no-image': 
+                    !goods.image}" />
+                    <span class="store-item-info">
+                        <h5 ng-bind="goods.name"></h5>
+                        <strong>兑换积分: {{ goods.cost }}</strong><br/>
+                        <strong>剩余数量: {{ goods.quantity }}</strong>
+                    </span>
+                    <button class="icon ion-ios7-checkmark-outline remove-button" ng-click="exchangeGoods(goods);$event.stopPropagation();"></button>
+                </a>
+            </li>
+            <li class="item" ng-if="!intergralData.goods.length && !intergralData.hasMore">
+                抱歉，暂时没有可兑换的商品哦。
+            </li>
+        </ul>
+        <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="intergralData.hasMore" icon="ion-loading-a">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

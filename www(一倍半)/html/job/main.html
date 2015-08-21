@@ -1,0 +1,52 @@
+<ion-view title="一倍半">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear icon ion-ios-search-strong" ng-click="find()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header" delegate-handle="mainScroll">
+    <div class="list">
+      <div class="item item-divider" style="color:#999999;"><i class="ion-arrow-right-b"></i> 大数据精准推</div>
+      <div class="item item-icon-right" style="color:#555555;padding:15px 10px" ng-click="list()">
+        <i class="icon ion-ios-arrow-right" style="color:#aaa"></i>
+        <div style="width:30px;height:30px;line-height:30px;background:#cc2311;float:left;color:#fff;margin-right:10px;font-weight:bold;text-align:center;font-size:16px;">荐</div>
+        <span style="height:30px;line-height:30px;">您的微简历 + 咱的<span style="color:#145fd7;font-weight:bold">大数据</span> ＝ ？</span>
+      </div>
+      <div class="item item-divider" style="color:#999999;" ng-if="companys"><i class="ion-arrow-right-b"></i> 名企招聘</div>
+      <div class="item" style="color:#555555;font-size:11px;padding:10px 0px;">
+        <div class="row" style="margin:0;padding:0;" ng-repeat="company in companys">
+          <div class="col col-25" ng-repeat="item in company" ng-click="find(item.search_name?item.search_name:item.name, false, false, 10000, 0)">
+            <center><img width="45" src="{{item.src}}"/><br/>{{item.name}}</center>
+          </div>
+        </div>
+      </div>
+      <div class="item item-divider" style="color:#999999;"><i class="ion-arrow-right-b"></i> 高薪专场</div>
+      <div class="item" style="color:#555555;font-size:13px;margin:0;padding:0;">
+        <div class="row" style="margin:0;padding:0;">
+          <div class="col col-50" ng-click="find(advice[0], false, false, 30000, 0)" style="border-right:1px solid #eeeeee;border-bottom:1px solid #eeeeee;padding:10px;">
+            <i class="icon ion-ios-barcode-outline" style="float:left;font-size:40px;color:#999999;padding-right:10px;width:40px;"></i>
+            <div style="float:left"><p style="font-size:18px;font-weight:bold;color:#145fd7;margin:0px;">{{advice[0]}}</p>年薪30万以上</div>
+          </div>
+          <div class="col col-50" ng-click="find(advice[1], false, false, 30000, 0)" style="border-bottom:1px solid #eeeeee;padding:10px;">
+            <i class="icon ion-ios-lightbulb-outline" style="float:left;font-size:40px;color:#999999;padding-right:10px;width:40px;"></i>
+            <div style="float:left"><p style="font-size:18px;font-weight:bold;color:#cc2311;margin:0px;">{{advice[1]}}</p>年薪30万以上</div>
+          </div>
+        </div>
+        <div class="row" style="margin:0;padding:0;">
+          <div class="col col-50" ng-click="find(advice[2], false, false, 30000, 0)" style="border-right:1px solid #eeeeee;padding:10px;">
+            <i class="icon ion-ios-people-outline" style="float:left;font-size:40px;color:#999999;padding-right:10px;width:40px;"></i>
+            <div style="float:left"><p style="font-size:18px;font-weight:bold;color:#d39211;margin:0px;">{{advice[2]}}</p>年薪30万以上</div>
+          </div>
+          <div class="col col-50" ng-click="find(false    , false, false, 80000, 0)" style="padding:10px;">
+            <i class="icon ion-ios-body-outline" style="float:left;font-size:40px;color:#999999;padding-right:10px;width:40px;"></i>
+            <div style="float:left"><p style="font-size:18px;font-weight:bold;color:#552bdf;margin:0px;">高管</p>年薪80万以上</div>
+          </div>
+        </div>
+      </div>
+      <div class="item item-divider" style="color:#999999;"><i class="ion-arrow-right-b"></i> 热门职位</div>
+      <div class="row" ng-repeat="position in positions">
+        <div class="col col-33" ng-repeat="item in position">
+          <span ng-click="find(item.text, false, false, 30000, 0)" class="button button-outline button-calm" style="width:90%;margin-left:5%;border-left:10px solid #43cee6;font-weight:bold;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:clip;{{item.style}}" >{{item.text}}</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

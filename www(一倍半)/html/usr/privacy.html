@@ -1,0 +1,33 @@
+<ion-view title="隐私设置">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header no-footer">
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">屏蔽公司：</span>
+        <input type="text" placeholder="可填多个简称：百度 阿里..." ng-model="ybb_user.privacy.shield_company">
+      </label>
+      <label class="item item-input item-select">
+        <span class="input-label">允许猎头、HR来电频率：</span>
+        <select ng-model="ybb_user.privacy.call_freq">
+          <option value="{{key}}" ng-repeat="(key,val) in myConfig.call_freq" ng-selected="key==ybb_user.privacy.call_freq">{{val}}</option>
+        </select>
+      </label>
+      <div style="background:#eeeeee;height:15px;">&nbsp;</div>
+      <ion-toggle ng-model="ybb_user.privacy.shield_profile" ng-checked="ybb_user.privacy.shield_profile" toggle-class="toggle-positive" ng-change="setall()">隐藏个人资料，不找工作</ion-toggle>
+      <ion-toggle ng-model="ybb_user.privacy.shield_phone"   ng-checked="ybb_user.privacy.shield_phone"   toggle-class="toggle-positive">隐藏手机号</ion-toggle>
+      <ion-toggle ng-model="ybb_user.privacy.shield_qq"      ng-checked="ybb_user.privacy.shield_qq"      toggle-class="toggle-positive">隐藏QQ号</ion-toggle>
+      <ion-toggle ng-model="ybb_user.privacy.shield_weixin"  ng-checked="ybb_user.privacy.shield_weixin"  toggle-class="toggle-positive">隐藏微信号</ion-toggle>
+      <ion-toggle ng-model="ybb_user.privacy.shield_email"   ng-checked="ybb_user.privacy.shield_email"   toggle-class="toggle-positive">隐藏Email</ion-toggle>
+      <div class="item item-divider" style="height:50px;font-size:12px;color:red;font-weight:normal;word-wrap:break-word;word-break:break-all;white-space:normal;">注：如您隐藏联系方式但不隐藏个人资料，那么猎头和HR仍然可通过APP消息与您沟通</div>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <center style="width:100%">
+      <a ng-click="save()" class="button button-assertive" style="width:90%;margin:0px;">
+        <b style="font-size:16px">保存</b>
+      </a>
+    </center>
+  </ion-footer-bar>
+</ion-view>

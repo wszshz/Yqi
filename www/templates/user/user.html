@@ -1,0 +1,57 @@
+<ion-view title="我的约起">
+    <ion-content class="opacity-hide" has-header="true" has-bouncing="true" ng-class="{'opacity-show': userData.data}">
+        <div class="profile-card gradient">
+            <a href="#/tab/account/profile" class="avatar-container">
+                <img ng-src="{{ userData.data.avatar }}" class="user-avatar" ng-if="userData.data.avatar" />
+                <i class="icon ion-person user-avatar" ng-if="!userData.data.avatar"></i>
+            </a>
+            <div style="position: absolute;">
+            	<div class="profile-info">
+                <h5 ng-bind="userData.data.nickname || userData.data.phone || '加载中...'"></h5>
+                <p ng-bind="userData.data.sign || '这个人很懒，什么都没有留下...'"></p>
+            </div>
+            </div>
+            <a class="ion-new-gear noborder" href="#/tab/user/setting"></a>
+        </div>
+        <div class="list account-menu">
+            <a class="item item-icon-left item-icon-right" href="#/tab/account/orders">
+            	<i class="icon ion-clipboard"></i>
+        			我的发起
+        		<i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a class="item item-icon-left item-icon-right" href="#/tab/account/address">
+                <i class="icon ion-person-stalker"></i>
+        			我的参与
+        		<i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+        <div class="list account-menu">
+            <a class="item item-icon-left item-icon-right" href="#/tab/account/profile">
+                <i class="icon ion-person"></i>
+                	个人资料设置
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a class="item item-icon-left item-icon-right" href="#/tab/account/password">
+                <i class="icon ion-locked"></i>
+                	密码修改
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+        <div class="list account-menu">
+            <a class="item item-icon-left item-icon-right" href="#/tab/account/complain">
+                <i class="icon ion-compose"></i>
+                	意见反馈
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+            <a class="item item-icon-left item-icon-right" href="#/tab/user/about">
+                <i class="icon ion-waterdrop"></i>
+                	关于约起
+                <i class="icon ion-ios-arrow-right"></i>
+            </a>
+        </div>
+        <button type="button" class="button button-block button-assertive button-logout" ng-click="logout()">
+            	退出登录
+        </button>
+        <br/>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,44 @@
+<ion-view title="{{config.hunter ? config.hunter.name : '信息'}}">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header no-footer" delegate-handle="mainScroll" ng-class="has-header">
+    <div class="list">
+      <div class="item">
+        <div style="width:45px;height:45px;line-height:45px;background:#eee;margin:auto;padding:auto;float:left;margin-right:10px;color:#666666;font-weight:bold;text-align:center;font-size:22px">{{config.hunter.name.substring(0,1)}}</div>
+        <h2>{{config.hunter.name}}</h2>
+        <p>{{config.hunter.enterprise}} {{config.hunter.position}}</p>
+        </a>
+        <a ng-click="chat()" class="button button-full button-stable" style="border:1px solid #cccccc;">
+          <b style="font-size:16px">发送消息</b>
+        </a>
+      </div>
+      <div class="item item-divider" style="font-size:16px;color:#2982a8;height:50px;line-height:40px;"><i class="ion-at"></i> 联系方式</div>
+      <div class="item item-icon-left" style="color:#333;" ng-if="config.hunter.mobile">
+        <i class="icon ion-iphone"></i>
+        <a class="positive" style="text-decoration:none;font-size:16px" href="tel:{{config.hunter.mobile}}">{{config.hunter.mobile}}</a>
+      </div>
+      <div class="item item-icon-left" style="color:#333;" ng-if="config.hunter.telphone">
+        <i class="icon ion-ios-telephone"></i>
+        <a class="positive" style="text-decoration:none;font-size:16px" href="tel:{{config.hunter.telphone}}">{{config.hunter.telphone}}</a>
+      </div>
+      <div class="item item-icon-left" style="color:#333;" ng-if="config.hunter.email">
+        <i class="icon ion-email"></i>
+        <a class="positive" style="text-decoration:none;font-size:16px" href="mailto:{{config.hunter.telphone}}">{{config.hunter.email}}</a>
+      </div>
+      <div ng-if="config.jobs.length">
+      <div class="item item-divider" style="font-size:16px;color:#2982a8;height:50px;line-height:40px;"><i class="ion-ribbon-a"></i> 在招职位</div>
+      <div class="row item" ng-click="view(job)" ng-repeat="job in config.jobs" style="padding:15px 10px;width:100%;">
+        <div class="col col-75">
+          <h2 style="font-size:18px;color:#222222">{{job.title}}</h2>
+          <p>{{job.company}}</p>
+        </div>
+        <div class="col col-25">
+          <p class="red_salary">{{job.salary}}</p>
+          <p class="grey_date" style="font-size:12px">{{job.postdate}}</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

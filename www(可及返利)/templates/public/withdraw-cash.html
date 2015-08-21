@@ -1,0 +1,39 @@
+ <ion-header-bar class="bar-stable">
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="backGo()"></a>
+    <h1 class="title">现金提现</h1>
+ </ion-header-bar>
+ <ion-content>
+	<section id="content" class="padding">
+		<div class="balance-title padding">
+		<p>小提示:</p>
+		<p>淘宝返利收入只能以集分宝形式到账支付宝(集分宝是支付宝积分,在淘宝下单时可使用集分宝抵现金,100集分宝=1元)。</p>
+		<p>商城返利收入和奖励收入既可以提现到支付宝余额，又可以转换成集分宝后以集分宝的形式到支付宝。</p>
+		</div>
+	</section>
+	<section id="content">
+    <form ng-submit="cashSubmit()">
+		<div class="list padding">
+		<label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <span class="input-label">可提金额</span>
+          <input type="text" value="{{cashDate.money?cashDate.money:0}}元" disabled="disabled" style="background-color:transparent">
+        </label>
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <span class="input-label">转出金额</span>
+          <input type="text" placeholder="最低提现5元" ng-model="cashDate.withdrawmoney">
+        </label>
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <span class="input-label">支付宝</span>
+          <input type="text" placeholder="请输入支付宝账号" ng-model="cashDate.alipay">
+        </label>
+        <label class="item-input padding-left padding-right" style="border-bottom:1px solid #ccc">
+          <span class="input-label">可及密码</span>
+          <input type="password" placeholder="请输入可及登录密码" ng-model="cashDate.password">
+        </label>
+        <label class="padding">
+          <button class="button button-block button-assertive" type="submit">立即转出</button>
+        </label>
+        <p class="text-center dark padding-left padding-right" style="padding-bottom:30px">现金提现到账时间最迟为一个月，以集分宝提现可当天到账<a href="#/public/withdraw-balance" class="padding-left" style="color:#000;text-decoration: none">>>去集分宝提现</a></p>
+		</div>
+  </form>
+	</section>
+</ion-content>

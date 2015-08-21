@@ -1,0 +1,34 @@
+ <ion-header-bar class="bar-stable">
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="backGo()"></a>
+    <h1 class="title">兑换现金</h1>
+ </ion-header-bar>
+ <ion-content class="bg-color-fa">
+	<section id="content" class="padding-left padding-right bg-color-ff relative">
+		<p class="padding border-bottom-grey clear">
+			<span class="fl padding">您有积分&nbsp;{{exchangeData.score}}</span>
+			<span class="fr padding">可以兑换&nbsp;{{exchangeData.money}}元</span>
+		</p>
+		<p class="padding clear" style="margin-bottom:0">
+			<button class="button button-assertive fr" ng-click="doExchange()">马上兑换</button>
+		</p>
+		<div class="block bg-color-orange opacity-9" ng-show="exchangeData.block"></div>
+		<div class="block" ng-show="exchangeData.block">
+		<p class="exchange-block-p">{{exchangeData.msg}}</p>
+		</div>
+	</section>
+	<section id="content" class="border-top-grey">
+		<div class="padding">
+			<p class="padding-top padding-left assertive">兑换条件</p>
+			<p class="padding-left">订单满100个（或距上次兑换时新订单满100个），并且积分至少5000才能兑换</p>
+		</div>
+		<div class="padding">
+		<p class="padding-top padding-left assertive">兑换规则</p>
+		<p class="padding-left">5000到9999扣5000积分兑换50元</p>
+		<p class="padding-left">10000到14999扣10000积分兑换100元</p>
+		<p class="padding-left">15000到19999扣15000积分兑换150元</p>
+		<p class="padding-left">20000到24999扣20000积分兑换200元</p>
+		<p class="padding-left">25000到29999扣25000积分兑换250元</p>
+		<p class="padding-left">类推...</p>
+		</div>
+	</section>
+ </ion-content>

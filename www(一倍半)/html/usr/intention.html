@@ -1,0 +1,39 @@
+<ion-view title="求职意向">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header no-footer">
+    <div class="list" style="padding:0;margin:0;">
+      <label class="item item-input">
+        <span class="input-label">工作城市：</span>
+        <input type="text" placeholder="可填多个简称：上海 北京..." ng-model="ybb_user.profile.city">
+      </label>
+      <label class="item item-input">
+        <span class="input-label" ng-if="0<ybb_user.profile.work_year">当前月薪：</span>
+        <span class="input-label" ng-if="1>ybb_user.profile.work_year">期望薪资：</span>
+        <input type="tel" placeholder="填写月薪（元）" ng-model="ybb_user.profile.current_salary">
+      </label>
+      <label class="item item-input item-select" ng-if="0<ybb_user.profile.work_year">
+        <span class="input-label">期望涨幅：</span>
+        <select ng-model="ybb_user.profile.expected_salary">
+          <option value="{{key}}" ng-repeat="(key,val) in myConfig.expected_salary" ng-selected="key==ybb_user.profile.expected_salary">{{val}}</option>
+        </select>
+      </label>
+      <label class="item item-input" ng-click="toggle();">
+        <span class="input-label">职位要求：</span>
+        <span style="color:#bbbbbb;font-size:14px" ng-if="!display.job_requirement">点击选择更多职位要求</span>
+      </label>
+    </div>
+    <div style="background:#ffffff;padding-left:10%;height:130px;" id="showmore" ng-if="display.job_requirement">
+      <div style="height:15px;background:#ffffff">&nbsp;</div>
+      <button ng-repeat="i in [0,1,2,3,4,5,6,7,8]" ng-click="select(i)" class="button {{job_requirement[i] ? 'button-positive' : 'button-stable'}} button-small btn-33"  style="margin:2%">{{myConfig.job_requirement[i]}}</button>
+    </div>
+  </ion-content>
+  <ion-footer-bar>
+    <center style="width:100%">
+      <a ng-click="save()" class="button button-assertive" style="width:90%;margin:0px;">
+        <b style="font-size:16px">保存</b>
+      </a>
+    </center>
+  </ion-footer-bar>
+</ion-view>

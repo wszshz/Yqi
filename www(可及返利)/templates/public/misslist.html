@@ -1,0 +1,25 @@
+ <ion-header-bar class="bar-stable">
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="backGo()"></a>
+    <h1 class="title">订单丢失申请列表</h1>
+ </ion-header-bar>
+<ion-content>
+  <ul class="list">
+    <li class="item missorder" style="margin-top:10px;background-color:#fafafa" ng-repeat="item in items">
+        <p>{{item.time}}</p>
+        <p>{{item.item_title}}</p>
+        <p><span class="fl">订单编号:{{item.order_id}}</span><span class="fr">{{item.shop_name}}</span></p>
+        <p><span class="fl">实际交易价格:{{item.real_price}}</span><span ng-if="item.commission_rate == '0'" class="fr" style="color:#000;font-weight:bold">返利比例:未填写</span>
+          <span ng-if="item.commission_rate != '0'" class="fr" style="color:#000;font-weight:bold">返利比例:{{item.commission_rate}}%</span>
+        </p>
+        <p><span class="fl">状态:</span>
+          <span ng-if="item.status=='1'" class="missorder-state calm-bg fl">{{item.status_label}}</span>
+          <span ng-if="item.status=='2'" class="missorder-state balanced-bg fl">{{item.status_label}}</span>
+          <span ng-if="item.status=='3'" class="missorder-state assertive-bg fl">{{item.status_label}}</span>
+          <span ng-if="item.status=='4'" class="missorder-state assertive-bg fl">{{item.status_label}}</span>
+          <span ng-if="item.status!='1'&&item.status!='2'&&item.status!='3'&&item.status!='4'" class="missorder-state dark-bg fl">{{item.status_label}}</span>
+          <span ng-if="item.status=='1'" class="fr missorder-state assertive-bg" ng-click="cancelMiss(item, item.id)">取消申请</span>
+        </p>
+    </li>
+  </ul>
+  <ion-infinite-scroll on-infinite="loadMore()" ng-if="load_over"></ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-view title="{{config.title}}">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()"></button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear icon ion-ios-person"     ng-click="view()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header no-footer" delegate-handle="mainScroll" ng-class="has-header">
+    <ion-refresher on-refresh="refresh()" pulling-text="下拉加载更多..." refreshing-text="加载中..." refreshing-icon="ion-load-c" ng-if="config.refresh">
+    </ion-refresher>
+    <ol class="messages">
+      <li ng-repeat="message in config.messages" style="float:{{message.send_direction==2 ? 'left' : 'right'}}">
+        <div style="width:30px;height:30px;line-height:30px;background:#eee;float:left;color:#666666;margin-right:5px;font-weight:bold;text-align:center;font-size:16px;border-radius:.75rem;" ng-if="message.send_direction==2" ng-click="showhunter()">{{config.box.participant_name.substring(0,1)}}</div>
+        &nbsp;<p class="color_{{message.send_direction==2 ? 'left' : 'right'}}" compile="message.html" ng-if="!message.data"></p>
+        <div class="card color_{{message.send_direction==2 ? 'left' : 'right'}}" ng-click="view_job(message.data.job.id_job)" ng-if="message.data&&1==message.data.type" style="width:230px;max-width:230px;display:inline-block;float:left;">
+          <div class="item item-divider">
+            职位推荐
+          </div>
+          <div class="item item-text-wrap" style="line-height:30px;">
+            <span style="color:red">{{message.data.job.salary}}</span>
+            &nbsp;
+            {{message.data.job.title_abbr}}
+            <br/>
+            <div style="max-width:200px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+            <i class="ion-location"></i> {{message.data.job.location}}
+            &nbsp;
+            <i class="ion-briefcase"></i> {{message.data.job.experience}}
+            &nbsp;
+            <i class="ion-university"></i> {{message.data.job.xueli}}
+            </div>
+            {{message.data.job.company_abbr}}
+          </div>
+        </div>
+        <img src="{{config.avatar}}" style="float:right" ng-if="message.send_direction==1"/>
+      </li>
+    </ol>
+    <div style="width:100%;height:30px;clear:both;float:none;"></div>
+    <ion-infinite-scroll on-infinite="infinite()" icon="ion-load-c" ng-if="config.infinite">
+    </ion-infinite-scroll>
+  </ion-content>
+  <ion-footer-bar class="item-input-inset" keyboard-attach>
+    <label class="item-input-wrapper"><input type="text" placeholder="回复..." ng-model="input.message"></label>
+    <button class="button button-small button-positive" ng-click="save()">回复</button>
+  </ion-footer-bar>
+</ion-view>

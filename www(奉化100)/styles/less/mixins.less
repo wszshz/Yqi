@@ -1,0 +1,54 @@
+//flex layout
+.display-flex(){
+    display: flex;
+    display: -webkit-flex;
+}
+.display-box(){
+    display: box;
+    display: -webkit-box;
+}
+.box-flex(@num){ 
+    box-flex: @num;
+    -webkit-box-flex: @num; 
+}
+.flex-dir(@dir: row){
+    -webkit-flex-direction: @dir;
+    flex-direction: @dir;
+}
+.box-orient(@ori: horizontal){
+    box-orient: @ori;
+    -webkit-box-orient: @ori;
+}
+
+//hack styles
+.box-shadow(@style){
+    box-shadow: @style;
+    -webkit-box-shadow: @style;
+}
+.text-shadow(@style){
+    text-shadow: @style;
+    -webkit-text-shadow: @style;
+}
+.border-radius(@px){
+    border-radius: @px;
+    -webkit-border-radius: @px;
+}
+
+//tools
+.pos-center(){
+    margin-left: auto;
+    margin-right: auto;
+}
+.text-ell(){
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+}
+.single-animation(@attr, @time){
+  -webkit-transform-origin: 0 0;
+  -webkit-transition: @attr @time ease-out;
+  -moz-transition: @attr @time ease-out;
+  -o-transition: @attr @time ease-out;
+  transition: @attr @time ease-out;
+  -webkit-font-smoothing: subpixel-antialiased;
+}

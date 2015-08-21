@@ -1,0 +1,58 @@
+<ion-view title="订单详情">
+    <ion-content has-header="true" has-bouncing="true">
+        <div class="list account-menu">
+            <a ng-href="{{ store.id==1?'#/tab/market': '#/tab/carryout/' + store.id }}" class="item item-icon-left item-icon-right" ng-repeat="store in orderData.data.stores track by $index">
+                <i class="icon ion-fork"></i>
+                {{ store.name }}
+                <i class="icon ion-ios7-arrow-right"></i>
+            </a>
+        </div>
+        <div class="padding" ng-if="orderData.data.status == 0 && orderData.data.payment == 1">
+            <button ng-click="rePayment()" class="button button-block button-balanced">重新支付</button>
+        </div>
+        <div class="list order-detail-list">
+            <div class="item">
+                　　状态: <em class="main-color" ng-bind="orderData.data.status_name"></em>
+            </div>
+            <div class="item">
+                　订单号: <em ng-bind="orderData.data.order_number"></em>
+            </div>
+            <div class="item">
+                　　小计: <em class="main-color" ng-bind="orderData.data.price"></em> 元
+            </div>
+            <div class="item">
+                　配送费: <em class="main-color" ng-bind="orderData.data.delivery_fee"></em> 元
+            </div>
+            <div class="item">
+                　　总计: <em class="main-color" ng-bind="orderData.data.delivery_fee*1 + orderData.data.price*1 | currency: ''"></em> 元
+            </div>
+            <div class="item">
+                　收货人: <em ng-bind="orderData.data.username"></em>
+            </div>
+            <div class="item">
+                联系电话: <em ng-bind="orderData.data.phone"></em>
+            </div>
+            <div class="item">
+                送货地址: <em ng-bind="orderData.data.address"></em>
+            </div>
+            <div class="item">
+                下单时间: <em ng-bind="orderData.data.added_at"></em>
+            </div>
+            <div class="item" ng-if="orderData.data.message">
+                　　备注: <em ng-bind="orderData.data.message"></em>
+            </div>
+            <div class="item item-divider" ng-repeat-start="store in orderData.data.stores track by $index">
+                订单明细 (店铺: <em ng-bind="store.name"></em>)
+            </div>
+            <div class="item item-avatar" ng-repeat-end ng-repeat="item in store.items track by $index">
+                <img cache-src="{{ item.image }}" alt=""/>
+                <h2 ng-bind="item.name"></h2>
+                <p>
+                    <em class="main-color" ng-bind="item.price"></em>
+                    元
+                    <span class="item-note" ng-bind="'x' + item.quantity"></span>
+                </p>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

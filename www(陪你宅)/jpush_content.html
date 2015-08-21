@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+    <head>        
+    	<script>
+			(function() {
+				if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+					var msViewportStyle = document.createElement("style");
+					msViewportStyle.appendChild(
+						document.createTextNode("@-ms-viewport{width:auto!important}")
+					);
+					document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+				}
+			})();
+		</script>
+        <title>青年打折卡</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />        
+        <link rel="stylesheet" type="text/css" href="css/icons.css" />    
+ 
+       <!--   
+     <link rel="stylesheet" type="text/css" href="css/af.ui.css" title="default" />
+  -->
+      <link rel="stylesheet" type="text/css" href="css/main.css"  />
+     
+      <link rel="stylesheet" type="text/css" href="css/lists.css"  />
+      <link rel="stylesheet" type="text/css" href="css/forms.css"  />
+      <link rel="stylesheet" type="text/css" href="css/buttons.css"  />        
+      <link rel="stylesheet" type="text/css" href="css/badges.css"  />        
+      <link rel="stylesheet" type="text/css" href="css/grid.css"  />
+      <link rel="stylesheet" type="text/css" href="css/photoswipe.css">
+      <link rel="stylesheet" type="text/css" href="css/default-skin/default-skin.css">
+      
+      
+
+
+      <link rel="stylesheet" type="text/css" href="css/qndzk.css"  />
+      <link rel="stylesheet" type="text/css" href="css/qndzk_icons.css"  />
+
+        
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.actionsheet.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.popup.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.scroller.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.selectBox.css"  /> 
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.accordion.css"  />        
+        <script type="text/javascript" charset="utf-8" src="./appframework.min.js"></script>        
+    	<script>           
+            if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+                var script = document.createElement("script");
+                script.src = "plugins/af.desktopBrowsers.js";
+                var tag = $("head").append(script);
+            }
+        </script>
+        <!--项目中常用的一些插件-->       
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>      
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>       
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>      
+
+        <script type="text/javascript" charset="utf-8" src="./ui/appframework.ui.js"></script>
+        <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->            
+       
+        <script type="text/javascript" src="./js/common.js"></script>
+        <script type="text/javascript" src="./js/basic.js"></script> 
+        
+</head>
+    <body>
+        <div id="afui">
+        	<div id="content">
+             <!--站长资讯-->
+                <div title='文章详情' id="main_panel" class="panel" selected="true" data-header="headerui" data-footer="none">
+                    <div id="ydwz" style=" -webkit-user-select:text; -moz-user-select:-moz-text;">
+                        
+                    </div>				
+                 </div>                 
+                 <header id="headerui">
+                     <a href="index.html#main" style="font-size:15px; color:#fff; text-decoration:none; margin:10px 0px 0px 10px; float:left;"  data-ignore="True">返回</a>              
+                     <h1>文章详情</h1>                   
+                </header>
+            </div>        	
+</div>     
+<script type="text/javascript">	
+	$.ui.setBackButtonText('返回');
+	$.ui.toggleNavMenu();//隐藏底部导航栏
+	
+    yuedu_();
+	//获取url传过来的内容
+	function getQueryString(name) {
+	    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	    var r = window.location.search.substr(1).match(reg);
+	    if (r != null) return unescape(r[2]); return null;
+    }  
+		
+</script>   
+        
+        
+     
+    </body>
+</html>

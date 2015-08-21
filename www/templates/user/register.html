@@ -1,0 +1,88 @@
+<ion-view class="entrance-view">
+    <ion-nav-bar class="bar-light">
+        <div class="buttons">
+            <button class="button-icon icon ion-ios7-arrow-back button" ng-click="goStep(formControls.step - 1)">
+                返回
+            </button>
+        </div>
+        <h1 class="title" ng-bind="formControls.stepTitle[formControls.step] || '--'"></h1>
+    </ion-nav-bar>
+    <ion-content class="login-content" has-bouncing="true">
+        <div class="resiter-step-container" ng-show="formControls.step == 1">
+        <form form-produce="formControls.conf">
+            <div class="list">
+                <label class="item item-input">
+                    &nbsp;&nbsp;
+                    <i class="icon ion-iphone placeholder-icon positive"></i>
+                    手机号&nbsp;&nbsp;
+                    <input type="text" placeholder="请输入手机号码" input-produce="formControls.phone" ng-model="formControls.models.phone" one-key-clear-input/>
+                </label>
+            </div>
+            <div class="list register-agreement">
+                <div class="item item-checkbox">
+                    <label class="checkbox">
+                       <input type="checkbox" checked="checked" disabled="disabled" />
+                    </label>
+                    <a href="javascript:;" ng-click="showAgreement()" class="positive">同意奉化100服务协议</a>
+                </div>
+            </div>
+            <div class="list list-inset">
+                <button type="button" class="button button-assertive button-block" form-only-check="goStep(2)" ng-disabled="formControls.SMSConf.timeout">
+                    获取验证码 {{ formControls.SMSConf.timeout?'(' + formControls.SMSConf.timeout + 's)': '' }}
+                </button>
+                <p class="dark">
+                    绑定手机不收取任何费用，一个手机只能绑定一个账号，若需修改或解除已绑定的手机，请联系奉化100客服
+                </p>
+            </div>
+        </form>
+        </div>
+        <div class="resiter-step-container" ng-show="formControls.step == 2">
+        <form form-produce="formControls.conf">
+            <p class="dark">&nbsp;&nbsp;&nbsp;&nbsp;已发送验证码至手机: {{ formControls.models.phone }}</p>
+            <div class="list">
+                <div class="item item-input reg-sms-container">
+                    验证码&nbsp;&nbsp;
+                    <label>
+                        <input type="text" placeholder="请输入验证码" maxlength="6" input-produce="formControls.code" ng-model="formControls.models.code" one-key-clear-input/>
+                    </label>
+                    <a href="javascript:;" ng-class="{'disabled': formControls.SMSConf.timeout != 0}" ng-bind="'重新获取' + (formControls.SMSConf.timeout?'(' + formControls.SMSConf.timeout + 's)': '')" ng-click="formControls.SMSConf.timeout || sendSMS()"></a>
+                </div>
+            </div>
+            <div class="list list-inset">
+                <button class="button button-assertive button-block" form-only-check="goStep(3)">
+                    完成
+                </button>
+                <p class="dark">
+                    绑定手机不收取任何费用，一个手机只能绑定一个账号，若需修改或解除已绑定的手机，请联系奉化100客服
+                </p>
+            </div>
+        </form>
+        </div>
+        <div class="resiter-step-container" ng-show="formControls.step == 3">
+            <div class="list">
+                <label class="item item-input">
+                    设置密码&nbsp;&nbsp;
+                    <input type="{{ formControls.password.show?'text': 'password' }}" placeholder="请输入密码" ng-model="formControls.models.password" one-key-clear-input/>
+                </label>
+            </div>
+            <div class="list register-agreement">
+                <div class="item item-checkbox">
+                    <label class="checkbox">
+                       <input type="checkbox" ng-model="formControls.password.show" />
+                    </label>
+                    显示密码
+                </div>
+            </div>
+            <div class="list list-inset">
+                <form form-produce="formControls.conf">
+                    <input type="hidden" input-produce="formControls.phone" ng-model="formControls.models.phone"/>
+                    <input type="hidden" input-produce="formControls.code" ng-model="formControls.models.code"/>
+                    <input type="hidden" input-produce="formControls.password" ng-model="formControls.models.password"/>
+                    <button class="button button-assertive button-block">
+                        完成
+                    </button>
+                </form>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

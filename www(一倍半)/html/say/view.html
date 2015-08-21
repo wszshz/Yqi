@@ -1,0 +1,42 @@
+<ion-view title="匿名八卦">
+  <ion-nav-buttons side="left">
+    <button class="button button-clear icon ion-ios-arrow-back" ng-click="back()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="false" class="has-header no-footer" delegate-handle="mainScroll">
+    <div class="list gossips">
+      <div class="item item-divider">
+        <div class="div-say" style="float:left;font-weight:normal;font-size:12px">
+          <div style="width:20px;height:20px;line-height:20px;background:#fd590d;float:left;color:#fff;margin-right:5px;font-weight:bold;text-align:center;font-size:14px;border-radius: .75rem;">{{config.gossip.fake_name.substring(0,1)}}</div>
+          {{config.gossip.fake_name}}发布
+        </div>
+        <div class="div-say" style="float:right;font-weight:normal;font-size:12px">{{config.gossip.post_date}}</div>
+        <h2 style="clear:both;font-size:17px;margin-left:5px;padding:20px;padding-bottom:10px;margin-right:5px;padding-left:0;padding-right:0;line-height:25px;">{{config.gossip.content}}</h2>
+        <div class="div-say" style="float:left;">{{config.gossip.tags}}</div>
+        <div class="div-say" style="float:right;font-weight:normal;color:#888888;">
+          <a ng-click="like(config.gossip)" style="{{config.gossip.ding_status ? 'color:red;' : ''}}"><i class="icon ion-android-favorite-outline" style="font-size:16px;"></i> {{1*config.gossip.ding}}</a>　
+          <a ng-click="view(config.gossip)"><i class="icon ion-compose"  style="font-size:17px;"></i> {{1*config.gossip.comment}} </a>　
+          <a ng-click="send(config.gossip)"><i class="icon ion-share"    style="font-size:20px;"></i> {{1*config.gossip.share}}   </a>
+        </div>
+      </div>
+      <div class="item" style="margin:0;padding:0" ng-repeat="comment in config.comments">
+        <div class="row">
+          <!--<div class="col col-10" style="overflow:hidden;">{{comment.fake_name}}</div>-->
+          <div class="col col-33" style="font-size:13px">
+            <div style="width:20px;height:20px;line-height:20px;background:#999;float:left;color:#fff;margin-right:5px;font-weight:bold;text-align:center;font-size:14px;border-radius: .75rem;">{{comment.fake_name.substring(0,1)}}</div>
+            {{comment.fake_name}}：
+          </div>
+          <div class="col" style="font-size:13px;word-wrap:break-word;word-break: break-all;white-space:normal;">{{comment.comment}}</div>
+        </div>
+      </div>
+    </div>
+    <div style="width:100%;height:30px;clear:both;float:none;"></div>
+    <ion-infinite-scroll on-infinite="infinite()" icon="ion-load-c" ng-if="config.infinite">
+    </ion-infinite-scroll>
+  </ion-content>
+  <ion-footer-bar class="item-input-inset" keyboard-attach>
+    <label class="item-input-wrapper">
+      <input type="text" placeholder="匿名回复..." ng-model="input.comment" id="input_comment"/>
+    </label>
+    <button class="button button-small button-positive" ng-click="save()">评论</button>
+  </ion-footer-bar>
+</ion-view>

@@ -1,0 +1,19 @@
+<ion-header-bar class="bar-stable" style="border-bottom:1px solid #b2b2b2 !important">
+    <a class="button icon-left ion-ios-arrow-left button-clear button-dark" ng-click="backGo()"></a>
+    <h1 class="title">好友列表</h1>
+</ion-header-bar>
+<ion-content>
+	<div class="row">
+		<div class="col text-center">用户名</div>
+		<div class="col text-center">已赚奖金</div>
+		<div class="col text-center">订单数</div>
+		<div class="col text-center">注册时间</div>
+	</div>
+	<div class="row bg-color-fa" style="margin:10px 0" ng-repeat="item in items">
+		<div class="col text-center">{{item.username}}</div>
+		<div class="col text-center">{{item.earn}}</div>
+		<div class="col text-center">{{item.order_num}}</div>
+		<div class="col text-center">{{item.regtime}}</div>
+	</div>
+<ion-infinite-scroll on-infinite="loadMore()" ng-if="load_over"></ion-infinite-scroll>
+</ion-content>
